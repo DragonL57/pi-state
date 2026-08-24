@@ -1,0 +1,10 @@
+# pi-state-sync: host-local credentials and runtime data
+.env.keys
+auth.json
+trust.json
+models-store.json
+sessions/
+npm/
+git/
+bin/
+node_modules/
