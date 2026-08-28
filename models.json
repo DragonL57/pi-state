@@ -3,7 +3,7 @@
     "llama-cpp": {
       "baseUrl": "http://localhost:8082/v1",
       "api": "openai-completions",
-      "apiKey": "not-needed",
+      "apiKey": "local",
       "compat": {
         "supportsDeveloperRole": false,
         "supportsReasoningEffort": false
