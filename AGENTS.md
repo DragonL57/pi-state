@@ -63,6 +63,11 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Do not use banned AI sentence patterns: "không phải là X + poetic tail", ornamental metaphors, exclamation-mark rhetoric, quiz-style fragments, bullet lists inside book prose.
 - Two research passes: English first for knowledge, then a SEPARATE Vietnamese pass for terms and phrasing. Never translate English into Vietnamese directly.
 
+# UI work
+
+- Load `/home/thelong/.pi/agent/skills/m3-expressive/SKILL.md` FIRST whenever a task touches or designs UI: components, screens, layouts, styling, design review. It is the Material 3 Expressive guide (source: https://github.com/abhixv/m3-expressive-design-skill).
+- Every number, token name, and component name in a UI spec comes from the skill's references (`tokens.md`, `components/*.md`, `component-tokens.md`). Do not state a plausible-sounding value from memory.
+
 # Git hygiene
 
 - Always attach the task code: `<task-code> <type>: <summary>` (Conventional Commits; the repo's own convention wins). UpLearn task code is ALWAYS `UPL-<task number>` (e.g. `UPL-46 fix: ...`), never `#<number>`.
