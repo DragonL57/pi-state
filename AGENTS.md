@@ -14,6 +14,7 @@ Global instructions for the pi main agent, applied in every project and session.
 - Do not research code with a grep/read loop. Before answering a code question, run `codegraph_explore` first: returned source counts as already read, no re-verification.
 - Do not re-verify graph answers with grep. `grep`/`read` only for exact literal strings, the file you are about to edit, and verification after edits.
 - `codegraph_search` to find a symbol, `codegraph_node` for one symbol plus callers/callees, `codegraph_impact` before changing a symbol.
+- Before exploring, decide all files/resources you need, then read them in one parallel batch; go sequential only when a read depends on an earlier read's result. (source: codex_prompting_guide, "Exploration and reading files")
 
 # Workflow
 
@@ -22,6 +23,9 @@ Global instructions for the pi main agent, applied in every project and session.
 - Do not mark `completed` while tests fail or the work is partial.
 - Do not skip phases: Understand → Plan → Execute → Verify → Report.
 - Do not use `delete` (todo) to hide failed or blocked work.
+- Plan closure before ending a turn: every todo becomes `completed` or `blocked` with a one-sentence reason; never leave dangling `in_progress`, never deliver only a plan when working code is the deliverable.
+- Promise discipline: do not commit to tests or refactors you will not do now; label them optional next steps.
+- A "review" request means code review: findings first, ordered by severity, each with a file path and line; if nothing found, say so plus residual risks and testing gaps. (source: codex_prompting_guide, "Special user requests")
 - After `/reload` or compaction, run `todo list` and re-orient from the injected recall BEFORE continuing.
 
 ## Phases
@@ -74,6 +78,9 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Task code not given: look it up before committing. Kaneo task number = the task's `number` field via the `kaneo-api` skill (e.g. `GET /api/task/{id}` → `"number": 46`); GitHub via `issue://`. Or ask. NEVER invent or guess a code.
 - Reference the code everywhere the work is recorded: commit message, PR/change description, final summary.
 - Do not use vague messages (`update stuff`, `fix bug`, `misc changes`), empty bodies for non-obvious changes, or multiple unrelated changes in one commit.
+- Do not revert, stash, or discard changes you did not make in this session; the dirty worktree belongs to the user. Work around it, or stop and ask.
+- Do not run destructive git (`reset --hard`, `checkout -- <path>`, `clean`, force push) without explicit user approval; same for amend.
+- If unexpected changes appear in files you are editing, stop and ask how to proceed. (source: codex_prompting_guide, "Editing constraints")
 
 # Environment facts
 
@@ -96,6 +103,13 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Do not skip design-rationale comments; they are documentation that prevents future bugs.
 - Do not ship non-trivial logic without ONE runnable check: an assert-based demo/self-check or one small test file. No frameworks, no fixtures.
 - Do not be lazy about: understanding the problem, input validation at trust boundaries, error handling that prevents data loss, security, accessibility, calibration of real hardware (a clock drifts, a sensor reads off), anything explicitly requested.
+- Do not swallow errors: no broad try/catch, no silent early returns, no success-shaped fallbacks; surface or propagate per repo patterns.
+- Do not dodge types with `as any` / `as unknown as`; use proper types, guards, and existing helpers.
+- Default to ASCII in edits and new files; add non-ASCII only when the file already uses it and there is a clear reason. (source: codex_prompting_guide, "Editing constraints")
+
+# Metaprompting
+
+- When the user flags a turn as slow, wrong, or below expectations: re-read this file, name the instruction (or its absence) that caused it, and propose a targeted, generalized edit. User approves before it lands. (source: codex_prompting_guide, "Troubleshooting & Metaprompting")
 
 # Tool routing
 
