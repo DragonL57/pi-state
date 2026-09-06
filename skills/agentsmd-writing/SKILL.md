@@ -20,7 +20,7 @@ Grounding (2026 preprints, arXiv): 2607.27250 (Khatri), 2604.11088 (Guardrails B
 
 ### 1. Negative constraints — the bulk of the file
 
-"do not X", one failure mode each, verifiable. Start from the repo's real failure modes, not imagined ones:
+"do not X", one failure mode each, verifiable. Start from real failure modes — the repo's, and your own repeated hand-corrections of the agent (diff discipline, error-swallowing) — not imagined ones:
 
 - "Do not refactor unrelated code." (the single most impactful rule measured in 2604.11088)
 - "Do not modify tests to make them pass."
@@ -51,6 +51,8 @@ Grounding (2026 preprints, arXiv): 2607.27250 (Khatri), 2604.11088 (Guardrails B
 - Heavy optional requirements and hypotheticals ("when X, consider Y").
 - Anything the agent can read in the code itself. If it can be inferred, cut it.
 - Content duplicated from the README or package manifests: redundancy measurably reduces performance (23% cost increase in the follow-up study).
+- Anything the harness already injects. The agent's own system prompt carries tool routing (e.g. pi injects codegraph usage) and its tool descriptions carry their own usage rules (e.g. the todo state machine). The harness copy is always current; a restatement in AGENTS.md is a stale copy waiting to happen. Duplication with the harness costs the same as duplication with the README.
+- A second home for a rule that already lives elsewhere in the file (a prose section restating a routing-table row, or vice versa). One rule, one location — the routing table wins for cross-cutting tool loads, the flow wins for workflow-positioned ones.
 ## Integrate tools into the flow, do not catalog them
 
 Style rule (user preference, not an evidence claim): when a tool or action belongs to a workflow, write it at the point in the flow where it fires. "At this place use this, at that place use that."
@@ -75,6 +77,7 @@ Style rule (user preference, not an evidence claim): when a tool or action belon
 ## Workflow
 
 1. Inspect the repo first: read existing context files and codebase conventions. When editing an existing file, preserve its repo-private facts while applying the polarity cleanup.
+   Also check sibling context files the loader picks up (CLAUDE.md, .cursorrules): a contradiction between them is worse than either file alone. Move other agents' leftovers out of the loader's path — pi loads CLAUDE.md from the project tree too, while Claude Code's global home is ~/.claude/CLAUDE.md.
 2. Draft negative constraints first, from observed failure modes.
 3. Add only un-inferrable positive facts. Test each line: can the agent read this from the code? → cut it.
 4. Trim to the shortest file that keeps the guardrails.
@@ -89,4 +92,6 @@ Style rule (user preference, not an evidence claim): when a tool or action belon
 - [ ] No theory, overview prose, or book distillations.
 - [ ] No rule the agent could infer from the codebase.
 - [ ] Every workflow tool is written at its trigger point in the flow, not in a separate catalog.
-- [ ] No line duplicates content the agent can read in the repo, README, or package manifests.
+- [ ] No line duplicates content the agent can read in the repo, README, package manifests — or the harness's own system prompt and tool descriptions.
+- [ ] Each rule lives in exactly one place in the file.
+- [ ] Sibling context files (CLAUDE.md, .cursorrules) checked for contradictions.
