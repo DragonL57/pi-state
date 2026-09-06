@@ -11,16 +11,11 @@ Global instructions for the pi main agent, applied in every project and session.
 - Do not defend an old answer when the user corrects it. Re-research.
 - Do not verify a claim by re-reasoning in the same context. Run the code, grep the symbols, execute the test. Tool output outranks judgment.
 - If not indexed, run `codegraph status` then `codegraph init -i` or `/codegraph init` to ensure the codegraph index is fresh (pi-codegraph-enhanced auto syncs on session start). Time is precious.
-- Do not research code with a grep/read loop. Before answering a code question, run `codegraph_explore` first: returned source counts as already read, no re-verification.
-- Do not re-verify graph answers with grep. `grep`/`read` only for exact literal strings, the file you are about to edit, and verification after edits.
-- `codegraph_search` to find a symbol, `codegraph_node` for one symbol plus callers/callees, `codegraph_impact` before changing a symbol.
 - Before exploring, decide all files/resources you need, then read them in one parallel batch; go sequential only when a read depends on an earlier read's result. (source: codex_prompting_guide, "Exploration and reading files")
 
 # Workflow
 
 - Do not start work before the task list exists: ANY request with 2+ steps MUST start with `todo create`.
-- Do not run more than ONE task `in_progress` at a time. Mark it `in_progress` before starting, `completed` at the step boundary.
-- Do not mark `completed` while tests fail or the work is partial.
 - Do not skip phases: Understand → Plan → Execute → Verify → Report.
 - Do not use `delete` (todo) to hide failed or blocked work.
 - Plan closure before ending a turn: every todo becomes `completed` or `blocked` with a one-sentence reason; never leave dangling `in_progress`, never deliver only a plan when working code is the deliverable.
@@ -30,10 +25,9 @@ Global instructions for the pi main agent, applied in every project and session.
 
 ## Phases
 
-- **Understand**: re-orient from the injected recall. Ensure index is fresh (`codegraph_status` or `/codegraph init`), then `codegraph_explore` for discovery and flow; `grep`/`read` only for exact literals on the file you will edit.
+- **Understand**: re-orient from the injected recall.
 - **Plan**: `todo create`. Search the codebase for the existing pattern before designing.
 - **Execute**: capture is automatic.
-- **Verify**: run the code, grep the symbols. Tool output outranks judgment and memory.
 - **Report**: summarize the change, the verification, and what remains.
 
 Guardrails:
@@ -59,18 +53,6 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Preserve every fact, name, number, path, URL, and command. Copy fenced code blocks exactly. Add no facts.
 - Replace clichés, stock metaphors, corporate jargon, slogans, filler, and repetition with their plain meaning.
 - Do not turn prose into a list or add sections. Simplify without deleting claims, conditions, qualifications, or instructions.
-
-# Vietnamese content
-
-- Load `/home/thelong/.pi/agent/skills/viet-noi-dung-hap-dan/SKILL.md` FIRST whenever the task touches Vietnamese (writing, editing, rewriting, translating, discussing wording or style). Follow its process: pick the register, find 2-3 real Vietnamese sample texts, extract terms and sentence patterns, then write with those patterns.
-- Do not improvise a Vietnamese voice. Vietnamese thought in English then translated is a failed deliverable.
-- Do not use banned AI sentence patterns: "không phải là X + poetic tail", ornamental metaphors, exclamation-mark rhetoric, quiz-style fragments, bullet lists inside book prose.
-- Two research passes: English first for knowledge, then a SEPARATE Vietnamese pass for terms and phrasing. Never translate English into Vietnamese directly.
-
-# UI work
-
-- Load `/home/thelong/.pi/agent/skills/m3-expressive/SKILL.md` FIRST whenever a task touches or designs UI: components, screens, layouts, styling, design review. It is the Material 3 Expressive guide (source: https://github.com/abhixv/m3-expressive-design-skill).
-- Every number, token name, and component name in a UI spec comes from the skill's references (`tokens.md`, `components/*.md`, `component-tokens.md`). Do not state a plausible-sounding value from memory.
 
 # Git hygiene
 
@@ -122,7 +104,8 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 | Script file | Nested quotes, escapes, heredocs, JSON payloads for curl, anything over SSH | Fighting complex quoting inline |
 | Git commit | Every commit, `<task-code> <type>: <summary>` | Vague messages, unrelated changes in one commit |
 | `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `/home/thelong/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
-| `viet-noi-dung-hap-dan` skill | ANY Vietnamese content: load the skill FIRST | Writing Vietnamese from memory or improvising a style |
+| `writing-instructions` skill | ANY writing, answering, documenting, or rewriting task in English or Vietnamese: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load `/home/thelong/.pi/agent/skills/writing-instructions/SKILL.md` FIRST | Writing or answering from memory, or improvising a style |
+| `m3-expressive` skill | ANY UI work (components, screens, layouts, styling, design review): load `/home/thelong/.pi/agent/skills/m3-expressive/SKILL.md` FIRST; every token/number comes from its references | Stating plausible-looking token values from memory |
 | `code-rules` skill | PHP work, architecture decisions, scalability/system-design discussions | (none) |
 | `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `/home/thelong/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
 | modlens skill | An image is in play and you cannot see its content (path, URL, pasted placeholder) | The active model sees it natively (guard verdict deny), or a plain file read already answers |
@@ -138,6 +121,3 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Daily workflow inside pi: `/pistate pull` before work on another host, `/pistate status` to review, `/pistate snapshot chore: <msg>` to commit, `/pistate push` to push. Manual fallback: `git -C ~/.pi/agent status`, `git -C ~/.pi/agent push`.
 - New host setup: `pi install npm:@moejay/pi-state-sync`, start pi, `/pistate configure existing DragonL57/pi-state`, then `/login` per host and copy `.env.keys` via secure channel. Validator patch in installed `core.ts` adds `ratio` and `not-needed` to `SAFE_LITERAL_SECRETS` to avoid false positives.
 
-# On-demand rules
-
-- PHP design principles, CS75 scalability rules, design guardrails and system-design guidelines live in the `code-rules` skill: load it (`/home/thelong/.pi/agent/skills/code-rules/SKILL.md`) when starting PHP work, architecture decisions, or scalability/distributed-design discussions.
