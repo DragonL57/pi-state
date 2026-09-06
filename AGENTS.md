@@ -28,7 +28,7 @@ Global instructions for the pi main agent, applied in every project and session.
 - **Understand**: re-orient from the injected recall.
 - **Plan**: `todo create`. Search the codebase for the existing pattern before designing.
 - **Execute**: capture is automatic.
-- **Report**: summarize the change, the verification, and what remains.
+- **Report**: end with exactly this shape and nothing else: (1) what changed, one file path per line; (2) what was not done, and why; (3) what the user needs to decide. No introductions, recaps, reassurance, or task restatement. Do not explain code visible in the diff. Short by default; expand only when asked.
 
 Guardrails:
 
@@ -60,6 +60,7 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Task code not given: look it up before committing. Kaneo task number = the task's `number` field via the `kaneo-api` skill (e.g. `GET /api/task/{id}` → `"number": 46`); GitHub via `issue://`. Or ask. NEVER invent or guess a code.
 - Reference the code everywhere the work is recorded: commit message, PR/change description, final summary.
 - Do not use vague messages (`update stuff`, `fix bug`, `misc changes`), empty bodies for non-obvious changes, or multiple unrelated changes in one commit.
+- Do not write a commit or PR description longer than the change it describes.
 - Do not revert, stash, or discard changes you did not make in this session; the dirty worktree belongs to the user. Work around it, or stop and ask.
 - Do not run destructive git (`reset --hard`, `checkout -- <path>`, `clean`, force push) without explicit user approval; same for amend.
 - If unexpected changes appear in files you are editing, stop and ask how to proceed. (source: codex_prompting_guide, "Editing constraints")
@@ -78,6 +79,7 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Do not fix the reported symptom. Use `codegraph_callers` to find every caller of the function you touch and fix the shared function once; patching only the reported path leaves a sibling caller broken.
 - Do not add dependencies or boilerplate nobody asked for.
 - Do not grow the diff: deletion over addition, fewest files possible, shortest working diff, once you understand the problem.
+- Do not implement from your own summary of a spec, ticket, or thread; summaries drop the constraint that turns out to matter. Re-read the source before building from it.
 - Do not refactor or reformat code unrelated to the task.
 - Do not modify tests to make them pass.
 - Do not pick the flimsier algorithm when two stdlib approaches are the same size; pick the edge-case-correct one.
