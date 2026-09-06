@@ -108,7 +108,6 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 | `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `/home/thelong/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
 | `writing-instructions` skill | ANY writing, answering, documenting, or rewriting task in English or Vietnamese: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load `/home/thelong/.pi/agent/skills/writing-instructions/SKILL.md` FIRST | Writing or answering from memory, or improvising a style |
 | `m3-expressive` skill | ANY UI work (components, screens, layouts, styling, design review): load `/home/thelong/.pi/agent/skills/m3-expressive/SKILL.md` FIRST; every token/number comes from its references | Stating plausible-looking token values from memory |
-| `code-rules` skill | PHP work, architecture decisions, scalability/system-design discussions | (none) |
 | `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `/home/thelong/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
 | modlens skill | An image is in play and you cannot see its content (path, URL, pasted placeholder) | The active model sees it natively (guard verdict deny), or a plain file read already answers |
 | `recall` | Exact source evidence behind a specific observation/memory id | Broad search, transcript browsing |
