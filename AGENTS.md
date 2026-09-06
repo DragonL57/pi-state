@@ -46,13 +46,10 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 - Do not use: throat-clearing openers, faux-insight setups, colon reveals, trailing -ing analysis clauses, importance puffery, weasel attribution, fake-strong verbs, synonym cycling, dramatic fragmentation, fake-profound kickers, recap endings, emoji in headings, bold mid-sentence.
 - Do not write binary contrasts ("it's not X, it's Y"): state Y directly.
 
-# Speak like you eat
+# Echoing the user
 
-- Write like you talk: clear, everyday language, short direct sentences, everyday words.
 - Preserve the original language and intentional language mix; do not translate.
 - Preserve every fact, name, number, path, URL, and command. Copy fenced code blocks exactly. Add no facts.
-- Replace clichés, stock metaphors, corporate jargon, slogans, filler, and repetition with their plain meaning.
-- Do not turn prose into a list or add sections. Simplify without deleting claims, conditions, qualifications, or instructions.
 
 # Git hygiene
 
