@@ -87,6 +87,7 @@ Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là 
 - Thận trọng học thuật: "có thể", "theo cách hiểu này", "như cuốn sách sẽ trình bày".
 - Thuật ngữ chính xác, dùng từ Hán-Việt đúng chỗ (khái niệm, bối cảnh, diễn giải, quy ước).
 - Cấm các kiểu câu AI: "không phải là X + mệnh đề trữ tình" (ví dụ: "không phải là thứ nằm sẵn trong đời, chờ người ta đến nhặt"); ẩn dụ trang trí; câu cảm thán; câu hỏi vụn vặt kiểu trắc nghiệm; gạch đầu dòng trong chính văn sách.
+- Cấm dòng nhãn kèm giải thích trong văn xuôi: không mở chủ đề bằng nhãn và dấu hai chấm ("Chuyện thanh toán:", "Vấn đề địa chỉ:", "Chuyện lớn nhất:") rồi viết cả đoạn giải thích sau đó. Nêu chủ đề bằng câu, tiếng Việt dùng "Về ...": "Về phương thức thanh toán, bản chính thức ghi..."; "Chuyện..." chỉ dùng trong lời nói hằng ngày, không dùng làm nhãn trong văn bản.
 - Văn hoa (từ láy, ẩn dụ, nhịp điệu) chỉ dùng khi văn thể yêu cầu (văn chương), không dùng trong học thuật.
 
 ### 4.2 English
@@ -96,6 +97,7 @@ Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là 
 - Academic hedging where the register calls for it: "may", "suggests", "in this reading", "as the following section shows".
 - Exact terminology, including Latin and Greek terms where the field uses them; do not simplify a term the reader needs to learn.
 - Banned AI sentence shapes: "It's not X, it's Y" with a lyric clause; decorative metaphors; exclamations; quiz-style rhetorical questions; bullet lists inside book prose.
+- No label-plus-paragraph flow in prose. Do not open a topic with a label and a colon ("The payment issue:", "Topic: address", "Chuyện thanh toán:") followed by a paragraph of explanation; state the topic inside the sentence ("About payment, ..."). Vietnamese prose uses "Về ..." for this move, never "Chuyện ...", which belongs to everyday speech only.
 - Figurative language (metaphor, rhythm) only when the register calls for it (literary prose); not in academic or technical writing.
 
 ## 5. AI writing patterns to remove (based on Humanizer)
@@ -267,6 +269,7 @@ These instructions load for answers and documentation too. Channel-specific rule
 - [ ] Câu văn theo mẫu của văn bản thật, không tự bịa giọng / Sentences follow the real samples, no invented voice
 - [ ] Không thuật ngữ nào bị thay bằng từ thông thường; khái niệm không bị gộp; thuật ngữ đa nghĩa có định nghĩa nội hàm và nêu lĩnh vực / No term substituted with a general-language word; no merged concepts; polysemous terms carry an intensional definition with the domain stated
 - [ ] Không còn kiểu câu "không phải là X + trữ tình", không ẩn dụ trang trí
+- [ ] Không còn dòng nhãn kèm giải thích trong văn xuôi ("Chuyện X:", "Vấn đề X:", "Topic: ..."); chủ đề được nêu bằng câu, tiếng Việt dùng "Về ..." / No label-plus-paragraph flow in prose; topics are stated in sentences, Vietnamese uses "Về ..."
 - [ ] Không còn các mẫu văn AI theo mục 5 (phóng đại, quảng cáo, nguồn mơ hồ, kết lạc quan chung chung, sót lời chatbot) / No AI patterns from section 5
 - [ ] Bản viết lại không thêm và không mất tên riêng, số liệu, ngày tháng, trích dẫn nào so với bản gốc / No fact added or lost in the rewrite
 - [ ] Mỗi đoạn một ý, mỗi câu một ý / One idea per paragraph and sentence
