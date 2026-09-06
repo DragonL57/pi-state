@@ -12,18 +12,20 @@ These instructions apply to every text this agent writes, answers, documents, or
 The most common failure of machine writing is inventing a voice: Vietnamese written by thinking in English and then translated, flowery English no professional would use, or a tone nobody asked for. Before writing a single word:
 
 1. Determine the right register for the content type (section 2).
-2. Find 2-3 real sample texts on the same topic, in the same register: for Vietnamese, Vietnamese research papers, university textbooks, recognized essays; for English, real documentation, papers, or prose in the same genre.
-3. Read them closely and extract exact patterns: how they open, how they define, which connectives they use, sentence structures, terminology.
-4. Write using those patterns. Do not invent a tone.
+2. Read the task's own source material (the paper, document, code, or thread the text is written from) and list its exact terms and phrasings. These source terms are the primary terminology; they override any generic field list collected later.
+3. Find 2-3 real sample texts on the same topic, in the same register: for Vietnamese, Vietnamese research papers, university textbooks, recognized essays; for English, real documentation, papers, or prose in the same genre.
+4. Read them closely and extract exact patterns: how they open, how they define, which connectives they use, sentence structures, terminology.
+5. Write using those patterns. Do not invent a tone.
 
 The fact rule (from Humanizer, applies to every section below): never invent a fact. A name, number, date, quote, citation, ranking, or any other factual claim must come from the source or from the user. If a sentence needs a missing detail, ask for it or write a simpler sentence. You may state an opinion or reaction when the text type and the writer call for one, but you may never add a factual claim. Fiction is exempt because invented details are part of the task.
 
 Lỗi phổ biến nhất của văn viết bằng máy là tự phát minh một giọng văn: tiếng Việt được nghĩ bằng tiếng Anh rồi dịch ra, hoặc văn hoa giả tạo. Trước khi viết một chữ nào, phải:
 
 1. Xác định văn thể đúng cho loại nội dung (mục 2).
-2. Tìm 2-3 văn bản mẫu thật cùng chủ đề, cùng văn thể: bài nghiên cứu tiếng Việt, giáo trình đại học, tiểu luận của tác giả được công nhận.
-3. Đọc kỹ, trích nguyên văn các mẫu: cách mở bài, cách định nghĩa, các liên từ, cấu trúc câu, thuật ngữ.
-4. Viết bằng chính các mẫu đó. Không tự sáng tạo giọng điệu.
+2. Đọc nguồn của chính nhiệm vụ (bài nghiên cứu, tài liệu, mã nguồn, luồng trao đổi mà văn bản viết từ đó) và lập danh sách thuật ngữ, cách diễn đạt chính xác của nguồn. Thuật ngữ của nguồn là thuật ngữ chính, ưu tiên hơn mọi danh sách chung thu thập sau đó.
+3. Tìm 2-3 văn bản mẫu thật cùng chủ đề, cùng văn thể: bài nghiên cứu tiếng Việt, giáo trình đại học, tiểu luận của tác giả được công nhận.
+4. Đọc kỹ, trích nguyên văn các mẫu: cách mở bài, cách định nghĩa, các liên từ, cấu trúc câu, thuật ngữ.
+5. Viết bằng chính các mẫu đó. Không tự sáng tạo giọng điệu.
 
 ## 2. Choose the register per content type
 
@@ -44,6 +46,8 @@ Match the register to the content type, and write entirely in the language of th
 
 Quy trình hai giai đoạn: (1) đọc nguồn tiếng Anh hoặc ngôn ngữ khác để hiểu đúng kiến thức và định nghĩa; (2) sau đó nghiên cứu riêng bằng tiếng Việt để lấy thuật ngữ và cách diễn đạt. Không bao giờ dịch trực tiếp từ tiếng Anh sang tiếng Việt: dịch máy có xu hướng đơn giản hóa, làm mất thuật ngữ riêng và nghèo đi bối cảnh. Bản tiếng Việt phải được dựng từ thuật ngữ và mẫu câu của văn bản tiếng Việt thật cùng chủ đề, không phải từ bản dịch trực tiếp của tiếng Anh.
 
+Giai đoạn 0, trước cả hai giai đoạn trên: đọc nguồn của chính nhiệm vụ và lập danh sách thuật ngữ, cách diễn đạt chính xác của nguồn; danh sách này ưu tiên hơn mọi danh sách chung thu thập sau đó (mục 1, bước 2).
+
 1. Tìm văn bản mẫu thật về đúng chủ đề bằng tiếng Việt. Dùng web search với từ khóa tiếng Việt: tên khái niệm + "định nghĩa", "khái niệm", "bài nghiên cứu".
 2. Đọc và lập danh sách thuật ngữ chuẩn của chủ đề. Ví dụ chủ đề dữ liệu/thông tin: dữ liệu, thông tin, sự khác biệt, quy ước mã hóa, vật mang vật lý, bối cảnh, diễn giải, phép đo, dữ liệu thô (raw data), xử lý, lưu trữ.
 3. Trích các mẫu câu định nghĩa và dùng đúng: "X là...", "X được hiểu là...", "Theo ..., X là...", "Nói cách khác, ...", "Chẳng hạn, ...", "Do đó, có thể nói: ...".
@@ -51,11 +55,29 @@ Quy trình hai giai đoạn: (1) đọc nguồn tiếng Anh hoặc ngôn ngữ k
 
 ### 3.2 When writing English
 
+Step 0, before the list below: read the task's own source material and list its exact terms and phrasings; they override the generic field list built here (section 1, step 2).
 1. Find real English texts in the same genre and on the same topic: official documentation, papers, well-edited prose. Use web search with English keywords: concept name + "definition", "documentation", "paper".
 2. Build the standard term list of the field and use those exact terms. Do not paraphrase a field's terms into looser words; consistency beats variety. Use one name per thing across the whole text (no synonym cycling: do not alternate "the service", "the endpoint", "the API" for one thing).
 3. Extract the sentence patterns of the genre and reuse them. In technical and reference English: subject-verb-object, plain verbs, one idea per sentence, definitions in the form "X is ...".
 4. Build the connective set of formal English: however, therefore, for example, in other words, first/second/third, on the other hand, in practice, by contrast. Use a connective once; do not stack them.
 
+### 3.3 Term usage (both languages)
+
+In terminology work (ISO 704:2022, ISO 1087:2019), a term (thuật ngữ) is the designation (định danh) of a concept (khái niệm) in a domain (lĩnh vực); its meaning is fixed by the intension (nội hàm) stated in the definition and by its place in the concept system (hệ thống khái niệm). A term is therefore not a word with a near-meaning: swapping it for a general-language word (từ thông thường) changes the concept. Machine writing loses terminology in two ways, and this section closes both.
+
+1. No term substitution. Do not replace a term with a general-language word or a more general term ("measurement error" → "mistake", "quy ước mã hóa" → "cách mã hóa"). Left uncontrolled, this is the movement terminology science calls determinologization: the term leaves its domain and, in the words of the lexicographic literature, loses its accuracy and gains new connotations (Nová 2018). Popularizing texts may generalize an expert term only deliberately: keep the field term first, explained, then the plainer wording.
+2. No merged concepts. When the domain separates two concepts (data / information; validity / reliability; accuracy / precision), keep the separation. Using one designation for the other concept is an inaccurate definition in the sense of ISO 704 6.5.3, even when the sentence still reads smoothly.
+3. Define before use. A polysemous or cross-domain term ("information", "model") gets an intensional definition in the text's own frame: superordinate concept plus delimiting characteristics (ISO 704 6.2-6.3), with the domain or subject stated (ISO 704 6.4.6). The definition must pass the substitution principle: it can replace the term in context without changing the meaning (ISO 704 6.4.4).
+4. One designation per concept. Keep term rendering consistent across the whole document, a stated key requirement of terminology management. Where the field has competing variants (preferred term vs admitted term, ISO 10241-1; the Vietnamese đồng nghĩa thuật ngữ problem: máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), take the source's choice and hold it.
+5. Before delivering, check every term against the source: no substitution, no merged concept, no dropped definition, no unannounced variant.
+
+Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là định danh của một khái niệm trong một lĩnh vực; nghĩa của nó được cố định bởi nội hàm nêu trong định nghĩa và bởi vị trí của nó trong hệ thống khái niệm. Vì vậy thuật ngữ không phải là một từ có nghĩa gần: thay nó bằng một từ thông thường là thay khái niệm. Văn máy làm mất thuật ngữ theo hai cách, và mục này chặn cả hai.
+
+1. Không thay thế thuật ngữ. Không đổi thuật ngữ thành từ thông thường hoặc từ tổng quát hơn ("sai số đo" → "lỗi", "quy ước mã hóa" → "cách mã hóa"). Không kiểm soát, đây chính là quá trình các nghiên cứu gọi là determinologization (de-terminologization): thuật ngữ rời chuyên ngành vào từ vựng chung, mất độ chính xác và mang thêm nghĩa mới (Nová 2018). Văn phổ cập vẫn được phép tổng quát hóa thuật ngữ, nhưng phải là chủ ý: giữ thuật ngữ gốc kèm giải thích trước, rồi mới diễn đạt lại bằng từ dễ hơn.
+2. Không gộp khái niệm. Khi lĩnh vực tách hai khái niệm (dữ liệu / thông tin; độ giá trị (validity) / độ tin cậy (reliability); độ chính xác (accuracy) / độ chụm (precision)), giữ nguyên sự tách. Dùng định danh này cho khái niệm kia là định nghĩa không chính xác theo nghĩa của ISO 704 6.5.3, dù câu vẫn đọc mượt.
+3. Định nghĩa trước khi dùng. Thuật ngữ đa nghĩa hoặc khác nghĩa giữa các ngành ("thông tin", "mô hình") phải có định nghĩa nội hàm theo khung của chính văn bản: khái niệm trên cùng nét nghĩa phân giới (ISO 704 6.2-6.3), và nêu lĩnh vực hoặc chủ đề (ISO 704 6.4.6). Định nghĩa phải qua được nguyên lý thay thế: đặt thay thuật ngữ trong câu mà nghĩa không đổi (ISO 704 6.4.4).
+4. Một định danh cho một khái niệm. Giữ cách dùng thuật ngữ nhất quán suốt văn bản, yêu cầu nền tảng của quản trị thuật ngữ. Nơi lĩnh vực có nhiều biến thể cạnh tranh (thuật ngữ chuẩn / thuật ngữ được chấp nhận theo ISO 10241-1; hiện tượng đồng nghĩa thuật ngữ tiếng Việt: máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), lấy lựa chọn của nguồn và giữ nguyên.
+5. Trước khi nộp, đối chiếu từng thuật ngữ với nguồn: không thay thế, không gộp khái niệm, không bỏ định nghĩa, không đổi biến thể.
 ## 4. Word-choice rules
 
 ### 4.1 Vietnamese
@@ -227,6 +249,10 @@ Chi tiết người viết phải giữ:
 ## 9. Answers, emails, and documentation
 
 These instructions load for answers and documentation too. Channel-specific rules:
+- Bullets are fine when the content is a real list: short items of the same kind (files, options, steps, names). Keep each item a phrase or one sentence. Put explanations, comparisons, and reasoning in prose paragraphs, not in `Label: explanation` bullets; a bullet that carries a title plus a paragraph of explanation is a report shape, and a person answering in chat writes it as connected sentences.
+- Gạch đầu dòng vẫn dùng bình thường khi nội dung là danh sách thật: các mục ngắn cùng loại (tệp, lựa chọn, bước, tên). Mỗi mục là một cụm từ hoặc một câu. Phần giải thích, so sánh, lập luận viết thành đoạn văn, không viết thành gạch đầu dòng dạng "Nhãn: giải thích"; một mục gạch đầu dòng mang tiêu đề kèm cả đoạn giải thích là kiểu báo cáo, người thật trả lời trong chat sẽ viết thành câu nối tiếp.
+- Break a long answer into short paragraphs with a blank line between them; do not write one dense wall of text. When quoting text verbatim (from an earlier reply, a file, a source), put it in a quote block or quotation marks and say it is quoted verbatim, not paraphrase it into the sentence. Use the formatting a person uses when writing in chat: italics, bold for one or two words, `code` for file paths and commands.
+- Chia câu trả lời dài thành các đoạn ngắn, có dòng trống ở giữa; không viết thành một khối chữ dày đặc. Khi trích nguyên văn (từ câu trả lời trước, một tệp, một nguồn), đặt trong khối trích dẫn hoặc ngoặc kép và nói rõ đó là trích nguyên văn, không lồng paraphrase vào câu. Dùng định dạng như người dùng khi viết trong chat: in nghiêng, in đậm một hai chữ, `code` cho đường dẫn và lệnh.
 
 - **Agent answers and chat replies.** Answer in the first sentence, then give the reasoning. No preamble ("Great question", "Of course"), no chatbot closing ("Hope this helps"). Keep the writer's language; if the user writes Vietnamese, answer in Vietnamese.
 - **Emails.** Subject line states the topic. One ask per email. No filler openings or sign-offs beyond the standard form of the relationship.
@@ -239,6 +265,7 @@ These instructions load for answers and documentation too. Channel-specific rule
 - [ ] Đã đọc ít nhất 2 văn bản mẫu thật cùng chủ đề / At least 2 real sample texts were studied
 - [ ] Thuật ngữ dùng đúng chuẩn của chủ đề / Field-standard terminology used consistently
 - [ ] Câu văn theo mẫu của văn bản thật, không tự bịa giọng / Sentences follow the real samples, no invented voice
+- [ ] Không thuật ngữ nào bị thay bằng từ thông thường; khái niệm không bị gộp; thuật ngữ đa nghĩa có định nghĩa nội hàm và nêu lĩnh vực / No term substituted with a general-language word; no merged concepts; polysemous terms carry an intensional definition with the domain stated
 - [ ] Không còn kiểu câu "không phải là X + trữ tình", không ẩn dụ trang trí
 - [ ] Không còn các mẫu văn AI theo mục 5 (phóng đại, quảng cáo, nguồn mơ hồ, kết lạc quan chung chung, sót lời chatbot) / No AI patterns from section 5
 - [ ] Bản viết lại không thêm và không mất tên riêng, số liệu, ngày tháng, trích dẫn nào so với bản gốc / No fact added or lost in the rewrite
@@ -252,3 +279,8 @@ These instructions load for answers and documentation too. Channel-specific rule
 - Bùi Văn Nam Sơn, "Trò chuyện triết học" và các bài tiểu luận: văn phong triết học bình dị, thận trọng.
 - Các bài nghiên cứu trên tạp chí khoa học tiếng Việt (tìm theo: tên khái niệm + "định nghĩa").
 - Skill Humanizer (https://github.com/blader/humanizer), dựa trên trang Wikipedia "Signs of AI writing" (https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), bảo trì bởi WikiProject AI Cleanup: danh sách mẫu văn AI ở mục 5.
+- ISO 704:2022, "Terminology work — Principles and methods" (ISO/TC 37/SC 1): khái niệm, định danh, định nghĩa nội hàm, nguyên lý thay thế, nêu lĩnh vực (6.2-6.4, 6.5.3).
+- ISO 1087:2019, "Terminology work and terminology science — Vocabulary"; ISO 10241-1: thuật ngữ, hệ thống khái niệm, đồng nghĩa, đa nghĩa, đồng âm; thuật ngữ chuẩn / thuật ngữ được chấp nhận.
+- Nová, Jana (2018), "Terms Embraced by the General Public: How to Cope with Determinologization in the Dictionary?", EURALEX 2018: determinologization (https://euralex.org/wp-content/themes/euralex/proceedings/Euralex%202018/118-4-2941-1-10-20180820.pdf).
+- Tạp chí Khoa học ĐHQGHN, Ngoại ngữ 27 (2011), tr. 53-66: yêu cầu đối với thuật ngữ tiếng Việt (tính chính xác, tính đơn nghĩa, tính hệ thống; hiện tượng đồng nghĩa thuật ngữ).
+- "Đặc điểm của thuật ngữ tiếng Việt (phần 1)", nguvan.hnue.edu.vn (2020): thuật ngữ hóa từ ngữ thông thường, hiện tượng đồng nghĩa thuật ngữ (máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), chuẩn hóa thuật ngữ tiếng Việt (http://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/p/796).
