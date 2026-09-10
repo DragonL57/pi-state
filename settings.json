@@ -14,9 +14,7 @@
     "npm:pi-mcp-adapter",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-hashline-edit-pro",
-    "npm:pi-voice-stt",
     "npm:pi-ollama-cloud",
-    "npm:pi-loop-police",
     "npm:pi-permission-system@0.8.0",
     "npm:@estebanforge/pi-codegraph-enhanced",
     "npm:@moejay/pi-state-sync"
