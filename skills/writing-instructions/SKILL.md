@@ -48,6 +48,8 @@ Quy trình hai giai đoạn: (1) đọc nguồn tiếng Anh hoặc ngôn ngữ k
 
 Giai đoạn 0, trước cả hai giai đoạn trên: đọc nguồn của chính nhiệm vụ và lập danh sách thuật ngữ, cách diễn đạt chính xác của nguồn; danh sách này ưu tiên hơn mọi danh sách chung thu thập sau đó (mục 1, bước 2).
 
+Yêu cầu kiểm chứng bắt buộc, áp dụng cho cả tiếng Việt và tiếng Anh: mọi cụm từ chỉ khái niệm dùng lần đầu, nhất là trong tiêu đề mục và tiêu đề đề mục, phải được xác nhận là kết hợp chuẩn bằng tìm kiếm trước khi đi vào văn bản. Tự ghép cụm từ rồi coi là đúng là lỗi, không phải cách viết. Cụm nào không có nguồn xác nhận thì không được xuất hiện trong bản nộp: thay bằng kết hợp chuẩn tìm được, hoặc nghiên cứu cho tới khi tìm được. Yêu cầu này không phụ thuộc cảm nhận; lý do duy nhất được phép bỏ qua nghiên cứu cho một từ là từ đó đã được xác nhận trong phiên làm việc này kèm nguồn. Khi viết, ghi lại từng thuật ngữ dùng lần đầu kèm đường dẫn nguồn xác nhận vào một danh sách; bản nộp chỉ đạt khi danh sách đã đầy đủ.
+
 1. Tìm văn bản mẫu thật về đúng chủ đề bằng tiếng Việt. Dùng web search với từ khóa tiếng Việt: tên khái niệm + "định nghĩa", "khái niệm", "bài nghiên cứu".
 2. Đọc và lập danh sách thuật ngữ chuẩn của chủ đề. Ví dụ chủ đề dữ liệu/thông tin: dữ liệu, thông tin, sự khác biệt, quy ước mã hóa, vật mang vật lý, bối cảnh, diễn giải, phép đo, dữ liệu thô (raw data), xử lý, lưu trữ.
 3. Trích các mẫu câu định nghĩa và dùng đúng: "X là...", "X được hiểu là...", "Theo ..., X là...", "Nói cách khác, ...", "Chẳng hạn, ...", "Do đó, có thể nói: ...".
@@ -90,7 +92,77 @@ Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là 
 - Cấm dòng nhãn kèm giải thích trong văn xuôi: không mở chủ đề bằng nhãn và dấu hai chấm ("Chuyện thanh toán:", "Vấn đề địa chỉ:", "Chuyện lớn nhất:") rồi viết cả đoạn giải thích sau đó. Nêu chủ đề bằng câu, tiếng Việt dùng "Về ...": "Về phương thức thanh toán, bản chính thức ghi..."; "Chuyện..." chỉ dùng trong lời nói hằng ngày, không dùng làm nhãn trong văn bản.
 - Văn hoa (từ láy, ẩn dụ, nhịp điệu) chỉ dùng khi văn thể yêu cầu (văn chương), không dùng trong học thuật.
 
-### 4.2 English
+- Tránh từ sách vở, dịch ngữ mà người viết kỹ thuật tiếng Việt không dùng trong văn thường. Thay bằng cách nói hằng ngày, nghĩa không đổi:
+  - "thực hành" (practices) → "cách làm", "những gì (cần làm)"
+  - "lời tựa" → "phần mở đầu"
+  - "theo năm tháng" / "theo thời gian" cuối câu → "qua thời gian"
+  - "phán đoán" (judgment call) → "sự cân nhắc"
+  - "truy chuỗi nguyên nhân" → "truy nguyên nhân"
+  - Kiểm tra: nếu một người Việt viết nhanh trong PR hoặc Slack thì họ sẽ dùng từ nào? Dùng từ đó. Từ Hán-Việt vẫn dùng đúng chỗ (khái niệm, bối cảnh, quy ước) theo bullet phía trên; cấm là những từ nghe như dịch từ tiếng Anh, không phải cả lớp từ Hán-Việt.
+- Cấu trúc câu tiếng Việt không phải bản chiếu của câu tiếng Anh. Dịch nghĩa rồi dựng lại theo mẫu câu tiếng Việt: "cần làm những gì" (không "cần những cách làm gì"), "một team" (không "một tổ chức" khi nói về đội nhỏ), câu hỏi đặt động từ trước danh từ hỏi.
+- Trong văn song ngữ kèm nhau, mỗi ngôn ngữ tự đứng. Đoạn tiếng Việt không lặp lại thông tin mà câu tiếng Anh ngay trên đã nêu (tên sách, tác giả, nhà xuất bản, link, tên riêng đầy đủ); nó chỉ dịch ý, gọi lại bằng cách nói ngắn tự nhiên ("cuốn sách này", "các tác giả").
+### 4.1.1 Formal Vietnamese: linking devices and anti-ambiguity rules
+Nguồn: kỹ thuật soạn thảo văn bản pháp luật và hành chính Việt Nam. Luật Ban hành văn bản quy phạm pháp luật 2015 (Điều 8) và Nghị quyết 351/2017/UBTVQH14 (Điều 18) yêu cầu: cách diễn đạt chính xác, rõ ràng, dễ hiểu; từ ngữ không được làm phát sinh nhiều cách hiểu; thuật ngữ chuyên môn cần làm rõ nội dung thì phải được giải thích; từ ngữ chỉ nội dung giống nhau dùng thống nhất toàn văn bản. Nghị định 34/2016/NĐ-CP (Điều 63, sửa đổi bởi Nghị định 154/2020/NĐ-CP) bổ sung: câu phải đủ thành phần ngữ pháp; các đoạn phải liên kết, sắp xếp lôgíc, chặt chẽ. Áp các yêu cầu này cho mọi văn xuôi tiếng Việt nghiêm túc, không chỉ văn bản pháp luật.
+
+Quy tắc liên kết:
+- Mỗi đoạn một chủ đề; mỗi câu một ý, viết thành câu hoàn chỉnh, đủ chủ ngữ và vị ngữ.
+- Câu thứ hai trở đi trong mỗi đoạn phải nêu rõ quan hệ với câu trước bằng từ nối, hoặc bằng chủ ngữ lặp lại có ý định. Cấm dồn nhiều mệnh đề cạnh nhau chỉ bằng dấu phẩy mà không có từ nối: đọc lên thành chuỗi ý rời rạc, người đọc phải tự đoán quan hệ.
+- Bảng từ nối theo quan hệ: nhân quả (Do đó, Vì vậy, Chính vì vậy, Nhờ vậy, Nhờ đó, Dẫn tới); tăng tiến (Theo đó, Đồng thời, Bên cạnh đó, Ngoài ra, Trước đó, Sau đó); cụ thể hóa (Cụ thể, Cụ thể là, Điều này, Nói cách khác); đối lập (Tuy nhiên, Mặt khác, Song); giới phạm vi (Đối với, Về, Riêng, Trên thực tế); điều kiện (Trường hợp... thì..., Nếu... thì..., Trong trường hợp này); mục đích (Nhằm, Để).
+- Không dồn ba ý trở lên vào một câu khi mối quan hệ giữa các ý không được nêu rõ; tách câu và nối mỗi ý bằng từ nối của riêng nó.
+
+Quy tắc thuật ngữ và chống đa nghĩa:
+- Thuật ngữ chuyên môn xuất hiện lần đầu phải được giải thích ngay trong câu: "X là...", "X được hiểu là...", "X, tức là...".
+- Cùng một nội dung dùng đúng một từ thống nhất toàn văn bản. Trước khi nộp, quét toàn bộ tệp để kiểm tra từng thuật ngữ, không chỉ phần vừa sửa.
+- Câu nào có thể hiểu theo nhiều nghĩa thì viết lại cho chỉ còn một nghĩa. Không dựa vào người đọc tự đoán ý.
+- Với tài liệu dành cho người ngoài ngành (stakeholder),
+- Giải thích phải trúng cơ chế thật, không nói vòng vo.
+- Cấm giải thích đi sau dấu phẩy trong câu đã có danh sách liệt kê bằng dấu phẩy: người đọc đọc phần giải thích thành phần tử kế tiếp của danh sách (ví dụ 'gửi qua Gmail SMTP, dịch vụ gửi thư của Google' trong câu đã có '(xác nhận đơn hàng, phản hồi yêu cầu hỗ trợ, nhắc tiến độ học tập)' bị đọc thành ba mục liệt kê). Khi đó phải đánh dấu quan hệ bằng 'tức', 'nghĩa là', 'hay còn gọi là', hoặc chuyển giải thích thành ngoặc đơn, hoặc tách thành câu riêng.
+- Cấm một từ mang hai nghĩa trong cùng câu mà không có bổ ngữ phân biệt (ví dụ 'thẻ og:image' là thẻ meta trong HTML, 'thẻ tóm tắt' là thẻ xem trước trên mạng xã hội; phải viết 'thẻ meta og:image' và 'thẻ xem trước'). Yêu cầu một nghĩa của Nghị quyết 351/2017/UBTVQH14 áp dụng ở cấp độ câu.
+- Cụm đuôi gắn cuối câu (bằng 'cùng', 'kèm', 'gồm') phải rõ nó bổ sung cho thành phần nào; nếu người đọc phải đoán thì tách thành câu riêng (ví dụ: 'Thẻ xem trước hiện kèm theo liên kết khi đó gồm cả ảnh, tiêu đề và vài dòng mở đầu').
+- Phân biệt hai trường hợp theo NQ 351/2017 Điều 18: quy tắc 'một điểm một ý, một câu hoàn chỉnh hoặc một đoạn' áp dụng cho đơn vị liệt kê (điểm, khoản, gạch đầu dòng), KHÔNG có nghĩa là chặt một cơ chế hay một chuỗi nhân quả thành các câu nguyên tử. Chuỗi điều kiện-kết quả của một cơ chế giữ trong một câu ghép trật tự thuận ('Khi... thì/rồi...'), định nghĩa thuật ngữ gắn ngay với thuật ngữ bằng 'tức...'; chỉ tách câu khi các ý độc lập với nhau. Chặt nhỏ quá mức khiến văn xuôi rời rạc, cũng là lỗi máy viết giống như dồn ý quá mức.
+- Kiểm tra kết hợp từ: cụm không có thật trong tiếng Việt ('xuất kèm dữ liệu') phải thay bằng kết hợp chuẩn ('cung cấp thêm', 'xu ra kèm theo').
+- Mọi con số, mốc hay tên gọi nêu trong câu phải có nội dung đi kèm ngay trong cùng đoạn: nói 'hai bước' thì nêu luôn bước nào là gì; nói 'ba luồng' phải chắc câu trước đã đếm đủ ba. Không gửi người đọc đi tìm ngữ cảnh ở nơi khác, đó là thiếu tôn trọng người đọc. Nêu tên kỹ thuật chính xác (ví dụ OG image, og:image) kèm cách gọi quen thuộc ngay cạnh, rồi mô tả cụ thể điều gì xảy ra khi người dùng thao tác (sao chép liên kết, dán vào mạng xã hội, nền tảng đọc thẻ og:image và hiện ảnh trên thẻ tóm tắt kèm liên kết). Câu chung chung kiểu 'hình ảnh hiện ra sẽ đúng theo bài viết đó' không được chấp nhận: người đọc vẫn không biết cơ chế là gì. Trước khi mô tả một tính năng, kiểm tra mã nguồn để giải thích đúng cách nó hoạt động thật. không chép tên gọi từ bản dịch nội bộ của sản phẩm (ví dụ Moodle dịch glossary thành "Bảng từ", LTI thành "Công cụ ngoại"; đây là tên quản trị, không phải thuật ngữ giao tiếp). Tra thuật ngữ chuẩn bằng web search với từ khóa tiếng Việt, lấy cách gọi mà người viết kỹ thuật Việt Nam dùng trong văn bản công khai (ví dụ "công cụ tìm kiếm", không "máy tìm kiếm"; "sao lưu", "triển khai", "bộ nhớ đệm"), và kèm tên tiếng Anh trong ngoặc ở lần đầu đề cập.
+
+Quy tắc chống lặp cấu trúc (chống "giọng máy"):
+- Giải thích thuật ngữ không dùng một khuôn duy nhất. Xoay vòng các cấu trúc: "tức là", "nghĩa là", "có nghĩa là", "cụ thể là", "hay nói cách khác", ngoặc đơn "(...)", hoặc gộp giải thích vào chính câu ("Giỏ hàng lưu trong cookie, tệp nhỏ mà trình duyệt giữ trên máy người dùng" thay vì "cookie, tức tệp nhỏ...").
+- Từ nối là thực đơn, không phải khuôn đúc: hai câu liên tiếp không mở bằng cùng một từ nối; trong một đoạn, mỗi từ nối xuất hiện tối đa một lần khi có thể.
+- Câu có quan hệ đã rõ nhờ chủ ngữ và ngữ cảnh thì không cần gán từ nối. Quy tắc "mỗi câu sau phải có từ nối" nhằm chống chuỗi mệnh đề rời rạc, không phải bắt gắn từ nối vào mọi câu.
+- Trước khi nộp, đếm tần suất các từ giải thích và từ nối (grep từng từ); một từ xuất hiện dày bất thường là dấu hiệu của máy viết, phải thay bằng biến thể hoặc viết lại câu.
+- Dấu hai chấm chỉ dùng để mở đầu một danh sách liệt kê. Không dùng dấu hai chấm để giải thích hay triển khai ý trong câu kể; đó là thói quen dịch từ tiếng Anh và người Việt không viết vậy. Cách tự nhiên là tách thành câu mới, dùng dấu phẩy kèm từ như "gồm", "nghĩa là", hoặc gộp giải thích vào câu.
+- Dấu chấm phẩy gần như không dùng trong văn xuôi tiếng Việt thông thường; hai ý tách bằng chấm phẩy hãy tách thành hai câu.
+- Không kết thúc hàng loạt câu nhân quả bằng ', nên X' gắn đuôi. Đây là mẫu máy viết. Xoay vòng: 'nhờ vậy', 'do đó', 'vì thế', 'bảo đảm', dựng câu với 'mà' (cập nhật ngay khi bấm mà trang không cần tải lại), tách kết quả thành câu riêng, hoặc nêu quan hệ bằng chính nghĩa câu (chứ, vẫn).
+
+Ví dụ minh họa (lấy từ lỗi thật của máy viết, khớp trực tiếp với quy tắc trên):
+
+Ví dụ 1, chuỗi mệnh đề không có từ nối (cấm):
+- SAI: "Ảnh chia sẻ của từng bài đúng theo bài đó, nên đăng lên Facebook hay Zalo hiện đúng ảnh." Ba mệnh đề dồn cạnh nhau bằng dấu phẩy; mệnh đề thứ hai và thứ ba bị cắt cụt, người đọc phải tự ghép quan hệ.
+- ĐÚNG: "Mỗi bài viết đều có ảnh chia sẻ riêng. Do đó, khi người đọc dán liên kết bài viết lên Facebook hay Zalo, hình ảnh hiển thị ra sẽ đúng theo bài viết đó." Mỗi câu một ý; câu sau nêu quan hệ nhân quả bằng "Do đó".
+
+Ví dụ 2, đoạn các câu rời rạc không nêu quan hệ (cấm):
+- SAI: "Khách chưa đăng nhập vẫn có thể bỏ khóa học vào giỏ hàng và áp dụng mã giảm giá. Giỏ hàng được lưu trong cookie, tức tệp nhỏ mà trình duyệt lưu trên máy người dùng, nên nội dung giữ nguyên khi khách chuyển sang trang khác. Khi khách đăng nhập hoặc đăng ký tài khoản, giỏ hàng tạm thời sẽ được chuyển thành giỏ hàng thật. Giỏ hàng còn gợi ý cho khách những khóa học phù hợp." Bốn câu đứng cạnh nhau; câu thứ hai không nêu quan hệ với câu đầu, câu cuối lơ lửng.
+- ĐÚNG: "Đối với khách chưa đăng nhập, hệ thống vẫn cho phép đưa khóa học vào giỏ hàng và áp dụng mã giảm giá. Giỏ hàng được lưu trong cookie, tức tệp nhỏ mà trình duyệt lưu trên máy người dùng; do đó, nội dung giỏ hàng được giữ nguyên khi khách chuyển sang trang khác. Sau đó, khi khách đăng nhập hoặc đăng ký tài khoản, giỏ hàng tạm thời được chuyển thành giỏ hàng thật. Bên cạnh đó, hệ thống còn gợi ý cho khách những khóa học phù hợp." Mỗi câu mở bằng từ nối hoặc chủ ngữ nêu rõ quan hệ.
+
+Ví dụ 3, thuật ngữ tự bịa (cấm):
+- SAI: "tệp quy định máy tìm kiếm được quét gì". "Máy tìm kiếm" là từ tự tạo; tiếng Việt dùng một cách gọi duy nhất cho khái niệm này.
+- ĐÚNG: "tệp quy định công cụ tìm kiếm được quét gì". Kiểm tra bằng web search trước khi dùng; nếu cách gọi chưa chắc chắn, tra với từ khóa tiếng Việt.
+
+Ví dụ 4, dịch chéo từ tiếng Anh thành cụm tiếng Việt không có thật (cấm):
+- SAI: "Cổng kiểm chứng bắt buộc" cho từ tiếng Anh "gate" trong "mandatory verification gate". "Cổng" trong tiếng Việt chỉ cửa vật lý và cổng mạng; quy trình không có "cổng".
+- ĐÚNG: "Yêu cầu kiểm chứng bắt buộc". Mọi từ tiếng Anh phải tra cách gọi thật trong tiếng Việt trước khi dùng, không dịch nghĩa từng từ rồi ghép lại.
+
+#### 4.1.2 Mọi thành phần phải đóng góp
+Mỗi câu và mỗi cụm trong câu phải đóng góp thông tin mới: ý mới, ngữ cảnh mới, hoặc quan hệ mới với nội dung trước đó. Câu nào người đọc đọc xong mà không biết thêm điều gì, không thể dùng để làm gì, hoặc lặp lại nội dung câu trước bằng cách diễn đạt khác thì xóa. Cụm từ treo trong câu ("chấm điểm từ 0 đến 1", "trong tuần đầu quan sát") phải nêu rõ nó bổ sung cho thành phần nào, nếu không thì xóa. Mỗi câu phải đóng góp vào ý của đoạn; mỗi đoạn phải đóng góp vào chủ đề của tài liệu; khi viết, hỏi từng câu: câu này giúp người đọc biết thêm gì, nếu không có câu này thì người đọc thiếu mất thông tin gì. Đánh giá khi hoàn thành: quét từng câu một và quyết định đóng góp của nó; câu không trả lời được thì xóa.
+
+#### 4.1.3 Dấu câu trong văn phong trang trọng (theo Nghị định 30/2020/NĐ-CP Phụ lục I và quy tắc chính tả tiếng Việt)
+- **Dấu chấm (.):** chỉ dùng để kết thúc một câu hoàn chỉnh có trọn ý. Không đặt dấu chấm sau cụm từ hay mệnh đề lửng. Sau dấu chấm viết hoa chữ đầu câu mới; trước dấu chấm không có khoảng trắng.
+- **Dấu phẩy (,):** bốn công dụng: (1) ngăn cách các thành phần cùng chức năng, kể cả mục liệt kê; (2) ngăn cách trạng ngữ với thành phần chính; (3) nối các vế trong câu ghép, đẳng lập lẫn chính-phụ; (4) đặt trước phụ đề (apposition). Trong câu đã có danh sách liệt kê bằng dấu phẩy thì phụ đề phải được đánh dấu quan hệ ("tức", "nghĩa là", "hay còn gọi là") hoặc đặt trong ngoặc, nếu không người đọc đọc thành mục tiếp theo của danh sách. Cấm dùng dấu phẩy làm dấu giải thích kiểu "X: giải thích" hay "X, nghĩa là dồn hàng loạt cụm sau nó mà không đánh dấu".
+- **Dấu hai chấm (:):** chỉ ba công dụng: (1) dẫn vào một danh sách liệt kê; (2) dẫn lời nói trực tiếp, đi kèm dấu ngoặc kép; (3) nhãn hành chính cố định ("Số:", "Kính gửi:", "Nơi nhận:"). Cấm dùng dấu hai chấm để giải thích trong dòng văn xuôi; đó là cấu trúc dịch từ tiếng Anh.
+- **Dấu chấm phẩy (;):** chỉ ba công dụng: (1) ngăn cách các mục liệt kê phức tạp mà bản thân mục đã có dấu phẩy ("Trong lớp có Minh, học giỏi; Lan, hát hay; và Nam, đá bóng giỏi"); (2) kết thúc mỗi dòng của danh sách có gạch đầu dòng hoặc đánh số, trừ dòng cuối lấy dấu chấm (theo Nghị định 30/2020, phần căn cứ ban hành và "Kính gửi" trình bày đúng vậy); (3) liệt kê dài các mệnh đề độc lập song song. Cấm dùng dấu chấm phẩy thay dấu chấm trong dòng văn kể chuyện; chuỗi ý trong văn xuôi phải là các câu riêng hoặc một câu ghép có từ nối rõ.
+- **Dấu ngoặc kép ("..."):** ba công dụng: (1) trích lời nói trực tiếp hoặc nguyên văn, có dấu hai chấm phía trước khi dẫn bằng động từ nói; (2) ghi tên tác phẩm, tên gọi chính xác; (3) đánh dấu từ dùng với nghĩa đặc biệt hoặc mỉa mai. Dấu nháy đơn (') chỉ dùng làm trích dẫn lồng trong trích dẫn, và trong tư liệu ngoại ngữ (chuỗi ký tự, đường dẫn); tiếng Việt không dùng dấu nháy đơn trong văn xuôi.
+- **Khoảng trắng:** không đặt khoảng trắng trước dấu câu; sau dấu câu đặt một khoảng trắng; trước ngoặc đơn mở và ngoặc kép mở có khoảng trắng, ngay sau không có.
+- **Nguyên tắc xuyên suốt:** dấu câu không được gánh nghĩa mà từ ngữ phải gánh. Trước khi đặt dấu, tự hỏi: dấu này phân định quan hệ gì, người đọc không hiểu nhầm ở chỗ nào. Cách dùng phải thống nhất trong toàn tài liệu.
+
+## 4.2 English
 
 - Prefer plain verbs: is, are, has, do, use, need. Avoid the inflated substitutes serves as, stands as, boasts, features, offers, leverages, utilizes, facilitates.
 - Direct declarative sentences: state the claim first, then the evidence. Example: "Data does not occur naturally; it is created."
@@ -266,6 +338,7 @@ These instructions load for answers and documentation too. Channel-specific rule
 - [ ] Đã xác định văn thể đúng cho nội dung / The register matches the content type
 - [ ] Đã đọc ít nhất 2 văn bản mẫu thật cùng chủ đề / At least 2 real sample texts were studied
 - [ ] Thuật ngữ dùng đúng chuẩn của chủ đề / Field-standard terminology used consistently
+- [ ] Mỗi cụm từ chỉ khái niệm dùng lần đầu, kể cả tiêu đề mục, đã được xác nhận bằng tìm kiếm kèm nguồn; không có cụm nào tự ghép và tự coi là đúng / Every first-use term phrase, including section headings, verified by search with a source; no self-coined collocation shipped
 - [ ] Câu văn theo mẫu của văn bản thật, không tự bịa giọng / Sentences follow the real samples, no invented voice
 - [ ] Không thuật ngữ nào bị thay bằng từ thông thường; khái niệm không bị gộp; thuật ngữ đa nghĩa có định nghĩa nội hàm và nêu lĩnh vực / No term substituted with a general-language word; no merged concepts; polysemous terms carry an intensional definition with the domain stated
 - [ ] Không còn kiểu câu "không phải là X + trữ tình", không ẩn dụ trang trí
@@ -273,6 +346,9 @@ These instructions load for answers and documentation too. Channel-specific rule
 - [ ] Không còn các mẫu văn AI theo mục 5 (phóng đại, quảng cáo, nguồn mơ hồ, kết lạc quan chung chung, sót lời chatbot) / No AI patterns from section 5
 - [ ] Bản viết lại không thêm và không mất tên riêng, số liệu, ngày tháng, trích dẫn nào so với bản gốc / No fact added or lost in the rewrite
 - [ ] Mỗi đoạn một ý, mỗi câu một ý / One idea per paragraph and sentence
+- [ ] Câu thứ hai trở đi trong mỗi đoạn có từ nối nêu rõ quan hệ với câu trước; không có cụm mệnh đề ghép bằng dấu phẩy thiếu từ nối / Every sentence after the first in each paragraph carries an explicit link word; no comma-joined clause chains without connectives
+- [ ] Không có từ giải thích (tức, tức là, nghĩa là) hay từ nối nào lặp dày bất thường; các câu trong đoạn dùng cấu trúc đa dạng / No explanation word or connective repeats heavily; sentence structures vary across the paragraph
+- [ ] Toàn bộ tệp đã được quét để kiểm tra từng thuật ngữ, không chỉ phần vừa sửa; thuật ngữ lần đầu có giải thích trong câu / The whole file was scanned for term consistency and first-mention explanations, not just the edited part
 - [ ] Có định nghĩa trước khi bàn luận / Definitions before discussion
 - [ ] Kết bài có hệ quả hoặc mục đích / The ending states a consequence or purpose
 
@@ -287,3 +363,6 @@ These instructions load for answers and documentation too. Channel-specific rule
 - Nová, Jana (2018), "Terms Embraced by the General Public: How to Cope with Determinologization in the Dictionary?", EURALEX 2018: determinologization (https://euralex.org/wp-content/themes/euralex/proceedings/Euralex%202018/118-4-2941-1-10-20180820.pdf).
 - Tạp chí Khoa học ĐHQGHN, Ngoại ngữ 27 (2011), tr. 53-66: yêu cầu đối với thuật ngữ tiếng Việt (tính chính xác, tính đơn nghĩa, tính hệ thống; hiện tượng đồng nghĩa thuật ngữ).
 - "Đặc điểm của thuật ngữ tiếng Việt (phần 1)", nguvan.hnue.edu.vn (2020): thuật ngữ hóa từ ngữ thông thường, hiện tượng đồng nghĩa thuật ngữ (máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), chuẩn hóa thuật ngữ tiếng Việt (http://nguvan.hnue.edu.vn/Nghi%C3%AAn-c%E1%BB%A9u/p/796).
+- Nghị quyết 351/2017/UBTVQH14, Điều 18 (sử dụng ngôn ngữ trong văn bản quy phạm pháp luật): cách diễn đạt chính xác, rõ ràng, dễ hiểu; từ ngữ không làm phát sinh nhiều cách hiểu; thuật ngữ chuyên môn phải được giải thích; mỗi điểm một ý trong một câu hoàn chỉnh.
+- Nghị định 34/2016/NĐ-CP, Điều 63 (sửa đổi, bổ sung bởi Nghị định 154/2020/NĐ-CP): câu đủ thành phần ngữ pháp, các đoạn liên kết lôgíc chặt chẽ, từ ngữ dùng thống nhất trong văn bản.
+- Nghị định 30/2020/NĐ-CP và Luật Ban hành văn bản quy phạm pháp luật 2015 (Điều 8): chuẩn soạn thảo văn bản hành chính và yêu cầu ngôn ngữ.

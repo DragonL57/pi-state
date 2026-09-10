@@ -38,6 +38,12 @@ Guardrails:
 
 pi-observational-memory handles in-session observations for compaction (`/om:status`, `recall`).
 
+# Writing instructions: mandatory load
+
+- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load `/home/thelong/.pi/agent/skills/writing-instructions/SKILL.md` and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
+- The skill's research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate English terms word by word into Vietnamese.
+- This section overrides the tool-routing table entry: if a turn would write prose without the skill loaded, load it first, no exceptions.
+
 # No AI slop
 
 - Do not use banned words: delve, foster, leverage, utilize, facilitate, empower, streamline, robust, cutting-edge, paradigm shift, game changer, tapestry, realm, beacon, multifaceted, meticulous, transformative, elevate, embark, harness, ever-evolving, "this changes everything".
