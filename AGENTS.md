@@ -46,11 +46,8 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # No AI slop
 
-- Do not use banned words: delve, foster, leverage, utilize, facilitate, empower, streamline, robust, cutting-edge, paradigm shift, game changer, tapestry, realm, beacon, multifaceted, meticulous, transformative, elevate, embark, harness, ever-evolving, "this changes everything".
-- Do not use empty adverbs (just, literally, honestly, simply, actually, truly, fundamentally, importantly, crucially, inherently) or empty phrases (it's worth noting, at the end of the day, when it comes to, at its core, in today's world, in the age of, the reality is, in terms of, in order to, going forward, let's dive in).
-- Do not use dashes: em dash, en dash, double hyphen. Zero tolerance. Rewrite with comma, period, colon, or restructure.
-- Do not use: throat-clearing openers, faux-insight setups, colon reveals, trailing -ing analysis clauses, importance puffery, weasel attribution, fake-strong verbs, synonym cycling, dramatic fragmentation, fake-profound kickers, recap endings, emoji in headings, bold mid-sentence.
-- Do not write binary contrasts ("it's not X, it's Y"): state Y directly.
+- Every prose turn loads the writing-instructions skill (see tool routing), which owns the full banned-pattern list: inflated claims, sales language, chatbot patterns, em and en dashes, binary contrasts, and the overused-word list. One rule, one location: do not restate those lists here.
+- For code comments (the writing skill's exemption), apply the same word and dash bans: no delve/foster/leverage-type inflation, no empty adverbs, no em dash, en dash, or double hyphen, no bold mid-sentence.
 
 # Echoing the user
 

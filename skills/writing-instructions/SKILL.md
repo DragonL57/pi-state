@@ -5,31 +5,17 @@ description: "Writing instructions for every text the agent produces or rewrites
 
 # Writing instructions: study real sources first, then write
 
-These instructions apply to every text this agent writes, answers, documents, or rewrites in English or Vietnamese. The core rule is the same in both languages: study real texts of the same type before writing, take the terminology and sentence patterns from them, and never invent a voice or a fact.
+These instructions apply to every text this agent writes, answers, documents, or rewrites in English or Vietnamese.
 
-## 1. Core principle: never invent a voice, never invent a fact
+## 1. Core gates: do not write before these pass
 
-The most common failure of machine writing is inventing a voice: Vietnamese written by thinking in English and then translated, flowery English no professional would use, or a tone nobody asked for. Before writing a single word:
-
-1. Determine the right register for the content type (section 2).
-2. Read the task's own source material (the paper, document, code, or thread the text is written from) and list its exact terms and phrasings. These source terms are the primary terminology; they override any generic field list collected later.
-3. Find 2-3 real sample texts on the same topic, in the same register: for Vietnamese, Vietnamese research papers, university textbooks, recognized essays; for English, real documentation, papers, or prose in the same genre.
-4. Read them closely and extract exact patterns: how they open, how they define, which connectives they use, sentence structures, terminology.
-5. Write using those patterns. Do not invent a tone.
-
-The fact rule (from Humanizer, applies to every section below): never invent a fact. A name, number, date, quote, citation, ranking, or any other factual claim must come from the source or from the user. If a sentence needs a missing detail, ask for it or write a simpler sentence. You may state an opinion or reaction when the text type and the writer call for one, but you may never add a factual claim. Fiction is exempt because invented details are part of the task.
-
-Lỗi phổ biến nhất của văn viết bằng máy là tự phát minh một giọng văn: tiếng Việt được nghĩ bằng tiếng Anh rồi dịch ra, hoặc văn hoa giả tạo. Trước khi viết một chữ nào, phải:
-
-1. Xác định văn thể đúng cho loại nội dung (mục 2).
-2. Đọc nguồn của chính nhiệm vụ (bài nghiên cứu, tài liệu, mã nguồn, luồng trao đổi mà văn bản viết từ đó) và lập danh sách thuật ngữ, cách diễn đạt chính xác của nguồn. Thuật ngữ của nguồn là thuật ngữ chính, ưu tiên hơn mọi danh sách chung thu thập sau đó.
-3. Tìm 2-3 văn bản mẫu thật cùng chủ đề, cùng văn thể: bài nghiên cứu tiếng Việt, giáo trình đại học, tiểu luận của tác giả được công nhận.
-4. Đọc kỹ, trích nguyên văn các mẫu: cách mở bài, cách định nghĩa, các liên từ, cấu trúc câu, thuật ngữ.
-5. Viết bằng chính các mẫu đó. Không tự sáng tạo giọng điệu.
+- Register gate: do not write a word before the register is matched to the content type with the table in section 2. Do not write Vietnamese by translating English, or English by translating Vietnamese; each language has its own patterns, terminology, and connectives (sections 3-4).
+- Source gate: do not write before the task's own source material (the paper, document, code, or thread the text is written from) is read and its exact terms and phrasings are listed. Source terms are the primary terminology; they override any generic field list collected later.
+- Samples gate: do not write before 2-3 real sample texts on the same topic, in the same register, are read and their patterns extracted: how they open, how they define, which connectives they use, sentence structures, terminology. Vietnamese samples: Vietnamese research papers, university textbooks, recognized essays. English samples: real documentation, papers, or prose in the same genre.
+- Voice gate: do not invent a voice. Do not write a tone nobody asked for, flowery prose no professional would use, or a register the content type does not call for. Write only with the patterns extracted at the samples gate.
+- Do not invent a fact. A name, number, date, quote, citation, ranking, or any other factual claim must come from the source or from the user. If a sentence needs a missing detail, ask for it or write a simpler sentence. You may state an opinion or reaction when the text type and the writer call for one, but you may never add a factual claim. Fiction is exempt because invented details are part of the task.
 
 ## 2. Choose the register per content type
-
-Match the register to the content type, and write entirely in the language of the task. Do not write Vietnamese by translating English, or English by translating Vietnamese; each language has its own patterns, terminology, and connectives (sections 3-5).
 
 | Content type | English register and reference | Vietnamese register and reference |
 |---|---|---|
@@ -44,11 +30,9 @@ Match the register to the content type, and write entirely in the language of th
 
 ### 3.1 When writing Vietnamese (including from an English source)
 
-Quy trình hai giai đoạn: (1) đọc nguồn tiếng Anh hoặc ngôn ngữ khác để hiểu đúng kiến thức và định nghĩa; (2) sau đó nghiên cứu riêng bằng tiếng Việt để lấy thuật ngữ và cách diễn đạt. Không bao giờ dịch trực tiếp từ tiếng Anh sang tiếng Việt: dịch máy có xu hướng đơn giản hóa, làm mất thuật ngữ riêng và nghèo đi bối cảnh. Bản tiếng Việt phải được dựng từ thuật ngữ và mẫu câu của văn bản tiếng Việt thật cùng chủ đề, không phải từ bản dịch trực tiếp của tiếng Anh.
+Quy trình hai giai đoạn: (1) đọc nguồn tiếng Anh hoặc ngôn ngữ khác để hiểu đúng kiến thức và định nghĩa; (2) nghiên cứu riêng bằng tiếng Việt để lấy thuật ngữ và cách diễn đạt, rồi dựng bản tiếng Việt từ thuật ngữ và mẫu câu của văn bản tiếng Việt thật cùng chủ đề. Không dịch trực tiếp từ tiếng Anh: dịch trực tiếp đơn giản hóa, mất thuật ngữ riêng, nghèo bối cảnh.
 
-Giai đoạn 0, trước cả hai giai đoạn trên: đọc nguồn của chính nhiệm vụ và lập danh sách thuật ngữ, cách diễn đạt chính xác của nguồn; danh sách này ưu tiên hơn mọi danh sách chung thu thập sau đó (mục 1, bước 2).
-
-Yêu cầu kiểm chứng bắt buộc, áp dụng cho cả tiếng Việt và tiếng Anh: mọi cụm từ chỉ khái niệm dùng lần đầu, nhất là trong tiêu đề mục và tiêu đề đề mục, phải được xác nhận là kết hợp chuẩn bằng tìm kiếm trước khi đi vào văn bản. Tự ghép cụm từ rồi coi là đúng là lỗi, không phải cách viết. Cụm nào không có nguồn xác nhận thì không được xuất hiện trong bản nộp: thay bằng kết hợp chuẩn tìm được, hoặc nghiên cứu cho tới khi tìm được. Yêu cầu này không phụ thuộc cảm nhận; lý do duy nhất được phép bỏ qua nghiên cứu cho một từ là từ đó đã được xác nhận trong phiên làm việc này kèm nguồn. Khi viết, ghi lại từng thuật ngữ dùng lần đầu kèm đường dẫn nguồn xác nhận vào một danh sách; bản nộp chỉ đạt khi danh sách đã đầy đủ.
+Yêu cầu kiểm chứng bắt buộc: mọi cụm từ chỉ khái niệm dùng lần đầu, nhất là trong tiêu đề mục và tiêu đề đề mục, phải được xác nhận là kết hợp chuẩn bằng tìm kiếm trước khi đi vào văn bản. Tự ghép cụm từ rồi coi là đúng là lỗi, không phải cách viết. Cụm nào không có nguồn xác nhận thì không được xuất hiện trong bản nộp: thay bằng kết hợp chuẩn tìm được, hoặc nghiên cứu cho tới khi tìm được. Khi viết, ghi lại từng thuật ngữ dùng lần đầu kèm đường dẫn nguồn xác nhận vào một danh sách; bản nộp chỉ đạt khi danh sách đã đầy đủ.
 
 1. Tìm văn bản mẫu thật về đúng chủ đề bằng tiếng Việt. Dùng web search với từ khóa tiếng Việt: tên khái niệm + "định nghĩa", "khái niệm", "bài nghiên cứu".
 2. Đọc và lập danh sách thuật ngữ chuẩn của chủ đề. Ví dụ chủ đề dữ liệu/thông tin: dữ liệu, thông tin, sự khác biệt, quy ước mã hóa, vật mang vật lý, bối cảnh, diễn giải, phép đo, dữ liệu thô (raw data), xử lý, lưu trữ.
@@ -57,29 +41,19 @@ Yêu cầu kiểm chứng bắt buộc, áp dụng cho cả tiếng Việt và t
 
 ### 3.2 When writing English
 
-Step 0, before the list below: read the task's own source material and list its exact terms and phrasings; they override the generic field list built here (section 1, step 2).
 1. Find real English texts in the same genre and on the same topic: official documentation, papers, well-edited prose. Use web search with English keywords: concept name + "definition", "documentation", "paper".
 2. Build the standard term list of the field and use those exact terms. Do not paraphrase a field's terms into looser words; consistency beats variety. Use one name per thing across the whole text (no synonym cycling: do not alternate "the service", "the endpoint", "the API" for one thing).
 3. Extract the sentence patterns of the genre and reuse them. In technical and reference English: subject-verb-object, plain verbs, one idea per sentence, definitions in the form "X is ...".
 4. Build the connective set of formal English: however, therefore, for example, in other words, first/second/third, on the other hand, in practice, by contrast. Use a connective once; do not stack them.
 
-### 3.3 Term usage (both languages)
+### 3.3 Term rules (both languages)
 
-In terminology work (ISO 704:2022, ISO 1087:2019), a term (thuật ngữ) is the designation (định danh) of a concept (khái niệm) in a domain (lĩnh vực); its meaning is fixed by the intension (nội hàm) stated in the definition and by its place in the concept system (hệ thống khái niệm). A term is therefore not a word with a near-meaning: swapping it for a general-language word (từ thông thường) changes the concept. Machine writing loses terminology in two ways, and this section closes both.
-
-1. No term substitution. Do not replace a term with a general-language word or a more general term ("measurement error" → "mistake", "quy ước mã hóa" → "cách mã hóa"). Left uncontrolled, this is the movement terminology science calls determinologization: the term leaves its domain and, in the words of the lexicographic literature, loses its accuracy and gains new connotations (Nová 2018). Popularizing texts may generalize an expert term only deliberately: keep the field term first, explained, then the plainer wording.
-2. No merged concepts. When the domain separates two concepts (data / information; validity / reliability; accuracy / precision), keep the separation. Using one designation for the other concept is an inaccurate definition in the sense of ISO 704 6.5.3, even when the sentence still reads smoothly.
+1. No term substitution. Do not replace a term with a general-language word or a more general term ("measurement error" → "mistake", "quy ước mã hóa" → "cách mã hóa"); this is the determinologization process (Nová 2018, section 10). Popularizing texts may generalize an expert term only deliberately: keep the field term first, explained, then the plainer wording.
+2. No merged concepts. When the domain separates two concepts (data / information; validity / reliability; accuracy / precision), keep the separation. Using one designation for the other concept is an inaccurate definition (ISO 704 6.5.3), even when the sentence still reads smoothly.
 3. Define before use. A polysemous or cross-domain term ("information", "model") gets an intensional definition in the text's own frame: superordinate concept plus delimiting characteristics (ISO 704 6.2-6.3), with the domain or subject stated (ISO 704 6.4.6). The definition must pass the substitution principle: it can replace the term in context without changing the meaning (ISO 704 6.4.4).
-4. One designation per concept. Keep term rendering consistent across the whole document, a stated key requirement of terminology management. Where the field has competing variants (preferred term vs admitted term, ISO 10241-1; the Vietnamese đồng nghĩa thuật ngữ problem: máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), take the source's choice and hold it.
+4. One designation per concept. Keep term rendering consistent across the whole document. Where the field has competing variants (preferred term vs admitted term, ISO 10241-1; the Vietnamese đồng nghĩa thuật ngữ problem: máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), take the source's choice and hold it.
 5. Before delivering, check every term against the source: no substitution, no merged concept, no dropped definition, no unannounced variant.
 
-Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là định danh của một khái niệm trong một lĩnh vực; nghĩa của nó được cố định bởi nội hàm nêu trong định nghĩa và bởi vị trí của nó trong hệ thống khái niệm. Vì vậy thuật ngữ không phải là một từ có nghĩa gần: thay nó bằng một từ thông thường là thay khái niệm. Văn máy làm mất thuật ngữ theo hai cách, và mục này chặn cả hai.
-
-1. Không thay thế thuật ngữ. Không đổi thuật ngữ thành từ thông thường hoặc từ tổng quát hơn ("sai số đo" → "lỗi", "quy ước mã hóa" → "cách mã hóa"). Không kiểm soát, đây chính là quá trình các nghiên cứu gọi là determinologization (de-terminologization): thuật ngữ rời chuyên ngành vào từ vựng chung, mất độ chính xác và mang thêm nghĩa mới (Nová 2018). Văn phổ cập vẫn được phép tổng quát hóa thuật ngữ, nhưng phải là chủ ý: giữ thuật ngữ gốc kèm giải thích trước, rồi mới diễn đạt lại bằng từ dễ hơn.
-2. Không gộp khái niệm. Khi lĩnh vực tách hai khái niệm (dữ liệu / thông tin; độ giá trị (validity) / độ tin cậy (reliability); độ chính xác (accuracy) / độ chụm (precision)), giữ nguyên sự tách. Dùng định danh này cho khái niệm kia là định nghĩa không chính xác theo nghĩa của ISO 704 6.5.3, dù câu vẫn đọc mượt.
-3. Định nghĩa trước khi dùng. Thuật ngữ đa nghĩa hoặc khác nghĩa giữa các ngành ("thông tin", "mô hình") phải có định nghĩa nội hàm theo khung của chính văn bản: khái niệm trên cùng nét nghĩa phân giới (ISO 704 6.2-6.3), và nêu lĩnh vực hoặc chủ đề (ISO 704 6.4.6). Định nghĩa phải qua được nguyên lý thay thế: đặt thay thuật ngữ trong câu mà nghĩa không đổi (ISO 704 6.4.4).
-4. Một định danh cho một khái niệm. Giữ cách dùng thuật ngữ nhất quán suốt văn bản, yêu cầu nền tảng của quản trị thuật ngữ. Nơi lĩnh vực có nhiều biến thể cạnh tranh (thuật ngữ chuẩn / thuật ngữ được chấp nhận theo ISO 10241-1; hiện tượng đồng nghĩa thuật ngữ tiếng Việt: máy tính / máy vi tính / máy điện toán, truy cập / truy xuất), lấy lựa chọn của nguồn và giữ nguyên.
-5. Trước khi nộp, đối chiếu từng thuật ngữ với nguồn: không thay thế, không gộp khái niệm, không bỏ định nghĩa, không đổi biến thể.
 ## 4. Word-choice rules
 
 ### 4.1 Vietnamese
@@ -89,9 +63,8 @@ Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là 
 - Thận trọng học thuật: "có thể", "theo cách hiểu này", "như cuốn sách sẽ trình bày".
 - Thuật ngữ chính xác, dùng từ Hán-Việt đúng chỗ (khái niệm, bối cảnh, diễn giải, quy ước).
 - Cấm các kiểu câu AI: "không phải là X + mệnh đề trữ tình" (ví dụ: "không phải là thứ nằm sẵn trong đời, chờ người ta đến nhặt"); ẩn dụ trang trí; câu cảm thán; câu hỏi vụn vặt kiểu trắc nghiệm; gạch đầu dòng trong chính văn sách.
-- Cấm dòng nhãn kèm giải thích trong văn xuôi: không mở chủ đề bằng nhãn và dấu hai chấm ("Chuyện thanh toán:", "Vấn đề địa chỉ:", "Chuyện lớn nhất:") rồi viết cả đoạn giải thích sau đó. Nêu chủ đề bằng câu, tiếng Việt dùng "Về ...": "Về phương thức thanh toán, bản chính thức ghi..."; "Chuyện..." chỉ dùng trong lời nói hằng ngày, không dùng làm nhãn trong văn bản.
+- Cấm dòng nhãn kèm giải thích trong văn xuôi: không mở chủ đề bằng nhãn và dấu hai chấm ("Chuyện thanh toán:", "Vấn đề địa chỉ:") rồi viết cả đoạn giải thích sau đó. Nêu chủ đề bằng câu, tiếng Việt dùng "Về ...": "Về phương thức thanh toán, bản chính thức ghi...". "Chuyện..." chỉ dùng trong lời nói hằng ngày, không dùng làm nhãn trong văn bản.
 - Văn hoa (từ láy, ẩn dụ, nhịp điệu) chỉ dùng khi văn thể yêu cầu (văn chương), không dùng trong học thuật.
-
 - Tránh từ sách vở, dịch ngữ mà người viết kỹ thuật tiếng Việt không dùng trong văn thường. Thay bằng cách nói hằng ngày, nghĩa không đổi:
   - "thực hành" (practices) → "cách làm", "những gì (cần làm)"
   - "lời tựa" → "phần mở đầu"
@@ -101,34 +74,37 @@ Trong công tác thuật ngữ (ISO 704:2022, ISO 1087:2019), thuật ngữ là 
   - Kiểm tra: nếu một người Việt viết nhanh trong PR hoặc Slack thì họ sẽ dùng từ nào? Dùng từ đó. Từ Hán-Việt vẫn dùng đúng chỗ (khái niệm, bối cảnh, quy ước) theo bullet phía trên; cấm là những từ nghe như dịch từ tiếng Anh, không phải cả lớp từ Hán-Việt.
 - Cấu trúc câu tiếng Việt không phải bản chiếu của câu tiếng Anh. Dịch nghĩa rồi dựng lại theo mẫu câu tiếng Việt: "cần làm những gì" (không "cần những cách làm gì"), "một team" (không "một tổ chức" khi nói về đội nhỏ), câu hỏi đặt động từ trước danh từ hỏi.
 - Trong văn song ngữ kèm nhau, mỗi ngôn ngữ tự đứng. Đoạn tiếng Việt không lặp lại thông tin mà câu tiếng Anh ngay trên đã nêu (tên sách, tác giả, nhà xuất bản, link, tên riêng đầy đủ); nó chỉ dịch ý, gọi lại bằng cách nói ngắn tự nhiên ("cuốn sách này", "các tác giả").
-### 4.1.1 Formal Vietnamese: linking devices and anti-ambiguity rules
-Nguồn: kỹ thuật soạn thảo văn bản pháp luật và hành chính Việt Nam. Luật Ban hành văn bản quy phạm pháp luật 2015 (Điều 8) và Nghị quyết 351/2017/UBTVQH14 (Điều 18) yêu cầu: cách diễn đạt chính xác, rõ ràng, dễ hiểu; từ ngữ không được làm phát sinh nhiều cách hiểu; thuật ngữ chuyên môn cần làm rõ nội dung thì phải được giải thích; từ ngữ chỉ nội dung giống nhau dùng thống nhất toàn văn bản. Nghị định 34/2016/NĐ-CP (Điều 63, sửa đổi bởi Nghị định 154/2020/NĐ-CP) bổ sung: câu phải đủ thành phần ngữ pháp; các đoạn phải liên kết, sắp xếp lôgíc, chặt chẽ. Áp các yêu cầu này cho mọi văn xuôi tiếng Việt nghiêm túc, không chỉ văn bản pháp luật.
+
+#### 4.1.1 Formal Vietnamese: linking devices and anti-ambiguity rules
+
+Nguồn: Luật Ban hành văn bản quy phạm pháp luật 2015 (Điều 8), Nghị quyết 351/2017/UBTVQH14 (Điều 18), Nghị định 34/2016/NĐ-CP (Điều 63, sửa đổi bởi Nghị định 154/2020/NĐ-CP), Nghị định 30/2020/NĐ-CP Phụ lục I. Yêu cầu chung: cách diễn đạt chính xác, rõ ràng, dễ hiểu; từ ngữ không được làm phát sinh nhiều cách hiểu; thuật ngữ chuyên môn cần làm rõ thì phải được giải thích; từ ngữ chỉ nội dung giống nhau dùng thống nhất toàn văn bản; câu đủ thành phần ngữ pháp; các đoạn phải liên kết, sắp xếp lôgíc, chặt chẽ. Áp cho mọi văn xuôi tiếng Việt nghiêm túc, không chỉ văn bản pháp luật.
 
 Quy tắc liên kết:
 - Mỗi đoạn một chủ đề; mỗi câu một ý, viết thành câu hoàn chỉnh, đủ chủ ngữ và vị ngữ.
-- Câu thứ hai trở đi trong mỗi đoạn phải nêu rõ quan hệ với câu trước bằng từ nối, hoặc bằng chủ ngữ lặp lại có ý định. Cấm dồn nhiều mệnh đề cạnh nhau chỉ bằng dấu phẩy mà không có từ nối: đọc lên thành chuỗi ý rời rạc, người đọc phải tự đoán quan hệ.
+- Câu thứ hai trở đi trong mỗi đoạn phải nêu rõ quan hệ với câu trước bằng từ nối, hoặc bằng chủ ngữ lặp lại có ý định. Cấm dồn nhiều mệnh đề cạnh nhau chỉ bằng dấu phẩy mà không có từ nối.
 - Bảng từ nối theo quan hệ: nhân quả (Do đó, Vì vậy, Chính vì vậy, Nhờ vậy, Nhờ đó, Dẫn tới); tăng tiến (Theo đó, Đồng thời, Bên cạnh đó, Ngoài ra, Trước đó, Sau đó); cụ thể hóa (Cụ thể, Cụ thể là, Điều này, Nói cách khác); đối lập (Tuy nhiên, Mặt khác, Song); giới phạm vi (Đối với, Về, Riêng, Trên thực tế); điều kiện (Trường hợp... thì..., Nếu... thì..., Trong trường hợp này); mục đích (Nhằm, Để).
 - Không dồn ba ý trở lên vào một câu khi mối quan hệ giữa các ý không được nêu rõ; tách câu và nối mỗi ý bằng từ nối của riêng nó.
+- Câu có quan hệ đã rõ nhờ chủ ngữ và ngữ cảnh thì không cần gán từ nối. Quy tắc "mỗi câu sau phải có từ nối" nhằm chống chuỗi mệnh đề rời rạc, không phải bắt gắn từ nối vào mọi câu.
+- Phân biệt hai trường hợp theo NQ 351/2017 Điều 18: quy tắc "một điểm một ý" áp dụng cho đơn vị liệt kê (điểm, khoản, gạch đầu dòng), KHÔNG có nghĩa là chặt một cơ chế hay một chuỗi nhân quả thành các câu nguyên tử. Chuỗi điều kiện-kết quả của một cơ chế giữ trong một câu ghép trật tự thuận ("Khi... thì/rồi..."); định nghĩa thuật ngữ gắn ngay với thuật ngữ bằng "tức..."; chỉ tách câu khi các ý độc lập với nhau. Chặt nhỏ quá mức khiến văn xuôi rời rạc, cùng là lỗi với dồn ý quá mức.
 
 Quy tắc thuật ngữ và chống đa nghĩa:
 - Thuật ngữ chuyên môn xuất hiện lần đầu phải được giải thích ngay trong câu: "X là...", "X được hiểu là...", "X, tức là...".
 - Cùng một nội dung dùng đúng một từ thống nhất toàn văn bản. Trước khi nộp, quét toàn bộ tệp để kiểm tra từng thuật ngữ, không chỉ phần vừa sửa.
 - Câu nào có thể hiểu theo nhiều nghĩa thì viết lại cho chỉ còn một nghĩa. Không dựa vào người đọc tự đoán ý.
-- Với tài liệu dành cho người ngoài ngành (stakeholder),
+- Với tài liệu dành cho người ngoài ngành (stakeholder), giải thích thuật ngữ bằng cách nói hằng ngày, kèm tên tiếng Anh trong ngoặc ở lần đầu đề cập.
 - Giải thích phải trúng cơ chế thật, không nói vòng vo.
 - Cấm giải thích đi sau dấu phẩy trong câu đã có danh sách liệt kê bằng dấu phẩy: người đọc đọc phần giải thích thành phần tử kế tiếp của danh sách (ví dụ 'gửi qua Gmail SMTP, dịch vụ gửi thư của Google' trong câu đã có '(xác nhận đơn hàng, phản hồi yêu cầu hỗ trợ, nhắc tiến độ học tập)' bị đọc thành ba mục liệt kê). Khi đó phải đánh dấu quan hệ bằng 'tức', 'nghĩa là', 'hay còn gọi là', hoặc chuyển giải thích thành ngoặc đơn, hoặc tách thành câu riêng.
-- Cấm một từ mang hai nghĩa trong cùng câu mà không có bổ ngữ phân biệt (ví dụ 'thẻ og:image' là thẻ meta trong HTML, 'thẻ tóm tắt' là thẻ xem trước trên mạng xã hội; phải viết 'thẻ meta og:image' và 'thẻ xem trước'). Yêu cầu một nghĩa của Nghị quyết 351/2017/UBTVQH14 áp dụng ở cấp độ câu.
-- Cụm đuôi gắn cuối câu (bằng 'cùng', 'kèm', 'gồm') phải rõ nó bổ sung cho thành phần nào; nếu người đọc phải đoán thì tách thành câu riêng (ví dụ: 'Thẻ xem trước hiện kèm theo liên kết khi đó gồm cả ảnh, tiêu đề và vài dòng mở đầu').
-- Phân biệt hai trường hợp theo NQ 351/2017 Điều 18: quy tắc 'một điểm một ý, một câu hoàn chỉnh hoặc một đoạn' áp dụng cho đơn vị liệt kê (điểm, khoản, gạch đầu dòng), KHÔNG có nghĩa là chặt một cơ chế hay một chuỗi nhân quả thành các câu nguyên tử. Chuỗi điều kiện-kết quả của một cơ chế giữ trong một câu ghép trật tự thuận ('Khi... thì/rồi...'), định nghĩa thuật ngữ gắn ngay với thuật ngữ bằng 'tức...'; chỉ tách câu khi các ý độc lập với nhau. Chặt nhỏ quá mức khiến văn xuôi rời rạc, cũng là lỗi máy viết giống như dồn ý quá mức.
+- Cấm một từ mang hai nghĩa trong cùng câu mà không có bổ ngữ phân biệt (ví dụ 'thẻ og:image' là thẻ meta trong HTML, 'thẻ tóm tắt' là thẻ xem trước trên mạng xã hội; phải viết 'thẻ meta og:image' và 'thẻ xem trước'). Yêu cầu một nghĩa của NQ 351/2017 áp dụng ở cấp độ câu.
+- Cụm đuôi gắn cuối câu (bằng 'cùng', 'kèm', 'gồm') phải rõ nó bổ sung cho thành phần nào; nếu người đọc phải đoán thì tách thành câu riêng.
 - Kiểm tra kết hợp từ: cụm không có thật trong tiếng Việt ('xuất kèm dữ liệu') phải thay bằng kết hợp chuẩn ('cung cấp thêm', 'xu ra kèm theo').
-- Mọi con số, mốc hay tên gọi nêu trong câu phải có nội dung đi kèm ngay trong cùng đoạn: nói 'hai bước' thì nêu luôn bước nào là gì; nói 'ba luồng' phải chắc câu trước đã đếm đủ ba. Không gửi người đọc đi tìm ngữ cảnh ở nơi khác, đó là thiếu tôn trọng người đọc. Nêu tên kỹ thuật chính xác (ví dụ OG image, og:image) kèm cách gọi quen thuộc ngay cạnh, rồi mô tả cụ thể điều gì xảy ra khi người dùng thao tác (sao chép liên kết, dán vào mạng xã hội, nền tảng đọc thẻ og:image và hiện ảnh trên thẻ tóm tắt kèm liên kết). Câu chung chung kiểu 'hình ảnh hiện ra sẽ đúng theo bài viết đó' không được chấp nhận: người đọc vẫn không biết cơ chế là gì. Trước khi mô tả một tính năng, kiểm tra mã nguồn để giải thích đúng cách nó hoạt động thật. không chép tên gọi từ bản dịch nội bộ của sản phẩm (ví dụ Moodle dịch glossary thành "Bảng từ", LTI thành "Công cụ ngoại"; đây là tên quản trị, không phải thuật ngữ giao tiếp). Tra thuật ngữ chuẩn bằng web search với từ khóa tiếng Việt, lấy cách gọi mà người viết kỹ thuật Việt Nam dùng trong văn bản công khai (ví dụ "công cụ tìm kiếm", không "máy tìm kiếm"; "sao lưu", "triển khai", "bộ nhớ đệm"), và kèm tên tiếng Anh trong ngoặc ở lần đầu đề cập.
+- Mọi con số, mốc hay tên gọi nêu trong câu phải có nội dung đi kèm ngay trong cùng đoạn: nói 'hai bước' thì nêu luôn bước nào là gì; nói 'ba luồng' phải chắc câu trước đã đếm đủ ba. Nêu tên kỹ thuật chính xác (ví dụ OG image, og:image) kèm cách gọi quen thuộc ngay cạnh, rồi mô tả cụ thể điều gì xảy ra khi người dùng thao tác (sao chép liên kết, dán vào mạng xã hội, nền tảng đọc thẻ og:image và hiện ảnh trên thẻ tóm tắt kèm liên kết). Trước khi mô tả một tính năng, kiểm tra mã nguồn để giải thích đúng cách nó hoạt động thật.
+- Không chép tên gọi từ bản dịch nội bộ của sản phẩm (ví dụ Moodle dịch glossary thành "Bảng từ", LTI thành "Công cụ ngoại"; đây là tên quản trị, không phải thuật ngữ giao tiếp). Tra thuật ngữ chuẩn bằng web search với từ khóa tiếng Việt, lấy cách gọi mà người viết kỹ thuật Việt Nam dùng trong văn bản công khai (ví dụ "công cụ tìm kiếm", không "máy tìm kiếm"; "sao lưu", "triển khai", "bộ nhớ đệm").
 
 Quy tắc chống lặp cấu trúc (chống "giọng máy"):
 - Giải thích thuật ngữ không dùng một khuôn duy nhất. Xoay vòng các cấu trúc: "tức là", "nghĩa là", "có nghĩa là", "cụ thể là", "hay nói cách khác", ngoặc đơn "(...)", hoặc gộp giải thích vào chính câu ("Giỏ hàng lưu trong cookie, tệp nhỏ mà trình duyệt giữ trên máy người dùng" thay vì "cookie, tức tệp nhỏ...").
 - Từ nối là thực đơn, không phải khuôn đúc: hai câu liên tiếp không mở bằng cùng một từ nối; trong một đoạn, mỗi từ nối xuất hiện tối đa một lần khi có thể.
-- Câu có quan hệ đã rõ nhờ chủ ngữ và ngữ cảnh thì không cần gán từ nối. Quy tắc "mỗi câu sau phải có từ nối" nhằm chống chuỗi mệnh đề rời rạc, không phải bắt gắn từ nối vào mọi câu.
 - Trước khi nộp, đếm tần suất các từ giải thích và từ nối (grep từng từ); một từ xuất hiện dày bất thường là dấu hiệu của máy viết, phải thay bằng biến thể hoặc viết lại câu.
-- Dấu hai chấm chỉ dùng để mở đầu một danh sách liệt kê. Không dùng dấu hai chấm để giải thích hay triển khai ý trong câu kể; đó là thói quen dịch từ tiếng Anh và người Việt không viết vậy. Cách tự nhiên là tách thành câu mới, dùng dấu phẩy kèm từ như "gồm", "nghĩa là", hoặc gộp giải thích vào câu.
+- Dấu hai chấm chỉ dùng để mở đầu một danh sách liệt kê. Không dùng dấu hai chấm để giải thích hay triển khai ý trong câu kể; đó là thói quen dịch từ tiếng Anh. Cách tự nhiên là tách thành câu mới, dùng dấu phẩy kèm từ như "gồm", "nghĩa là", hoặc gộp giải thích vào câu.
 - Dấu chấm phẩy gần như không dùng trong văn xuôi tiếng Việt thông thường; hai ý tách bằng chấm phẩy hãy tách thành hai câu.
 - Không kết thúc hàng loạt câu nhân quả bằng ', nên X' gắn đuôi. Đây là mẫu máy viết. Xoay vòng: 'nhờ vậy', 'do đó', 'vì thế', 'bảo đảm', dựng câu với 'mà' (cập nhật ngay khi bấm mà trang không cần tải lại), tách kết quả thành câu riêng, hoặc nêu quan hệ bằng chính nghĩa câu (chứ, vẫn).
 
@@ -150,31 +126,34 @@ Ví dụ 4, dịch chéo từ tiếng Anh thành cụm tiếng Việt không có
 - SAI: "Cổng kiểm chứng bắt buộc" cho từ tiếng Anh "gate" trong "mandatory verification gate". "Cổng" trong tiếng Việt chỉ cửa vật lý và cổng mạng; quy trình không có "cổng".
 - ĐÚNG: "Yêu cầu kiểm chứng bắt buộc". Mọi từ tiếng Anh phải tra cách gọi thật trong tiếng Việt trước khi dùng, không dịch nghĩa từng từ rồi ghép lại.
 
-#### 4.1.2 Mọi thành phần phải đóng góp
-Mỗi câu và mỗi cụm trong câu phải đóng góp thông tin mới: ý mới, ngữ cảnh mới, hoặc quan hệ mới với nội dung trước đó. Câu nào người đọc đọc xong mà không biết thêm điều gì, không thể dùng để làm gì, hoặc lặp lại nội dung câu trước bằng cách diễn đạt khác thì xóa. Cụm từ treo trong câu ("chấm điểm từ 0 đến 1", "trong tuần đầu quan sát") phải nêu rõ nó bổ sung cho thành phần nào, nếu không thì xóa. Mỗi câu phải đóng góp vào ý của đoạn; mỗi đoạn phải đóng góp vào chủ đề của tài liệu; khi viết, hỏi từng câu: câu này giúp người đọc biết thêm gì, nếu không có câu này thì người đọc thiếu mất thông tin gì. Đánh giá khi hoàn thành: quét từng câu một và quyết định đóng góp của nó; câu không trả lời được thì xóa.
+#### 4.1.2 Every sentence must add information
+
+- Delete any sentence the reader gains nothing from: no new fact, no new context, no new relation to earlier content, or a restatement of the previous sentence in different words.
+- A hanging phrase in a sentence ("chấm điểm từ 0 đến 1", "trong tuần đầu quan sát") must name what it modifies; if it cannot, delete it.
+- When writing, ask each sentence: what does the reader know now that they did not know before this sentence? When delivering, scan sentence by sentence and decide its contribution; sentences without an answer get deleted.
 
 #### 4.1.3 Dấu câu trong văn phong trang trọng (theo Nghị định 30/2020/NĐ-CP Phụ lục I và quy tắc chính tả tiếng Việt)
+
 - **Dấu chấm (.):** chỉ dùng để kết thúc một câu hoàn chỉnh có trọn ý. Không đặt dấu chấm sau cụm từ hay mệnh đề lửng. Sau dấu chấm viết hoa chữ đầu câu mới; trước dấu chấm không có khoảng trắng.
-- **Dấu phẩy (,):** bốn công dụng: (1) ngăn cách các thành phần cùng chức năng, kể cả mục liệt kê; (2) ngăn cách trạng ngữ với thành phần chính; (3) nối các vế trong câu ghép, đẳng lập lẫn chính-phụ; (4) đặt trước phụ đề (apposition). Trong câu đã có danh sách liệt kê bằng dấu phẩy thì phụ đề phải được đánh dấu quan hệ ("tức", "nghĩa là", "hay còn gọi là") hoặc đặt trong ngoặc, nếu không người đọc đọc thành mục tiếp theo của danh sách. Cấm dùng dấu phẩy làm dấu giải thích kiểu "X: giải thích" hay "X, nghĩa là dồn hàng loạt cụm sau nó mà không đánh dấu".
-- **Dấu hai chấm (:):** chỉ ba công dụng: (1) dẫn vào một danh sách liệt kê; (2) dẫn lời nói trực tiếp, đi kèm dấu ngoặc kép; (3) nhãn hành chính cố định ("Số:", "Kính gửi:", "Nơi nhận:"). Cấm dùng dấu hai chấm để giải thích trong dòng văn xuôi; đó là cấu trúc dịch từ tiếng Anh.
-- **Dấu chấm phẩy (;):** chỉ ba công dụng: (1) ngăn cách các mục liệt kê phức tạp mà bản thân mục đã có dấu phẩy ("Trong lớp có Minh, học giỏi; Lan, hát hay; và Nam, đá bóng giỏi"); (2) kết thúc mỗi dòng của danh sách có gạch đầu dòng hoặc đánh số, trừ dòng cuối lấy dấu chấm (theo Nghị định 30/2020, phần căn cứ ban hành và "Kính gửi" trình bày đúng vậy); (3) liệt kê dài các mệnh đề độc lập song song. Cấm dùng dấu chấm phẩy thay dấu chấm trong dòng văn kể chuyện; chuỗi ý trong văn xuôi phải là các câu riêng hoặc một câu ghép có từ nối rõ.
+- **Dấu phẩy (,):** bốn công dụng: (1) ngăn cách các thành phần cùng chức năng, kể cả mục liệt kê; (2) ngăn cách trạng ngữ với thành phần chính; (3) nối các vế trong câu ghép, đẳng lập lẫn chính-phụ; (4) đặt trước phụ đề (apposition). Trong câu đã có danh sách liệt kê bằng dấu phẩy thì phụ đề phải được đánh dấu quan hệ ("tức", "nghĩa là", "hay còn gọi là") hoặc đặt trong ngoặc. Cấm dùng dấu phẩy làm dấu giải thích kiểu "X: giải thích".
+- **Dấu hai chấm (:):** chỉ ba công dụng: (1) dẫn vào một danh sách liệt kê; (2) dẫn lời nói trực tiếp, đi kèm dấu ngoặc kép; (3) nhãn hành chính cố định ("Số:", "Kính gửi:", "Nơi nhận:"). Cấm dùng dấu hai chấm để giải thích trong dòng văn xuôi.
+- **Dấu chấm phẩy (;):** chỉ ba công dụng: (1) ngăn cách các mục liệt kê phức tạp mà bản thân mục đã có dấu phẩy; (2) kết thúc mỗi dòng của danh sách có gạch đầu dòng hoặc đánh số, trừ dòng cuối lấy dấu chấm; (3) liệt kê dài các mệnh đề độc lập song song. Cấm dùng dấu chấm phẩy thay dấu chấm trong dòng văn kể chuyện.
 - **Dấu ngoặc kép ("..."):** ba công dụng: (1) trích lời nói trực tiếp hoặc nguyên văn, có dấu hai chấm phía trước khi dẫn bằng động từ nói; (2) ghi tên tác phẩm, tên gọi chính xác; (3) đánh dấu từ dùng với nghĩa đặc biệt hoặc mỉa mai. Dấu nháy đơn (') chỉ dùng làm trích dẫn lồng trong trích dẫn, và trong tư liệu ngoại ngữ (chuỗi ký tự, đường dẫn); tiếng Việt không dùng dấu nháy đơn trong văn xuôi.
 - **Khoảng trắng:** không đặt khoảng trắng trước dấu câu; sau dấu câu đặt một khoảng trắng; trước ngoặc đơn mở và ngoặc kép mở có khoảng trắng, ngay sau không có.
 - **Nguyên tắc xuyên suốt:** dấu câu không được gánh nghĩa mà từ ngữ phải gánh. Trước khi đặt dấu, tự hỏi: dấu này phân định quan hệ gì, người đọc không hiểu nhầm ở chỗ nào. Cách dùng phải thống nhất trong toàn tài liệu.
 
-## 4.2 English
+### 4.2 English
 
 - Prefer plain verbs: is, are, has, do, use, need. Avoid the inflated substitutes serves as, stands as, boasts, features, offers, leverages, utilizes, facilitates.
 - Direct declarative sentences: state the claim first, then the evidence. Example: "Data does not occur naturally; it is created."
 - Academic hedging where the register calls for it: "may", "suggests", "in this reading", "as the following section shows".
 - Exact terminology, including Latin and Greek terms where the field uses them; do not simplify a term the reader needs to learn.
-- Banned AI sentence shapes: "It's not X, it's Y" with a lyric clause; decorative metaphors; exclamations; quiz-style rhetorical questions; bullet lists inside book prose.
-- No label-plus-paragraph flow in prose. Do not open a topic with a label and a colon ("The payment issue:", "Topic: address", "Chuyện thanh toán:") followed by a paragraph of explanation; state the topic inside the sentence ("About payment, ..."). Vietnamese prose uses "Về ..." for this move, never "Chuyện ...", which belongs to everyday speech only.
 - Figurative language (metaphor, rhythm) only when the register calls for it (literary prose); not in academic or technical writing.
+- AI sentence shapes and chatbot patterns: section 5 owns the ban list for both languages.
 
 ## 5. AI writing patterns to remove (based on Humanizer)
 
-Nguồn: skill [Humanizer](https://github.com/blader/humanizer), 35 mẫu lấy từ trang Wikipedia ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) (WikiProject AI Cleanup). Danh sách dưới đây áp dụng cho cả tiếng Anh và tiếng Việt. Quy tắc gốc của Humanizer áp dụng cho mọi mẫu: không bịa sự thật. Tên riêng, số liệu, ngày tháng, trích dẫn phải đến từ nguồn hoặc từ người viết; thiếu thì hỏi, hoặc bỏ câu.
+Nguồn: skill [Humanizer](https://github.com/blader/humanizer), 35 mẫu lấy từ trang Wikipedia ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) (WikiProject AI Cleanup). Danh sách dưới đây áp dụng cho cả tiếng Anh và tiếng Việt; quy tắc không bịa sự thật ở mục 1 áp dụng cho mọi mẫu: không bịa tên riêng, số liệu, ngày tháng, trích dẫn để lấp chỗ trống.
 
 ### 5.1 English patterns (the 35 Humanizer patterns)
 
@@ -288,71 +267,54 @@ Chi tiết người viết phải giữ:
 - Cảm xúc lẫn lộn, mâu thuẫn chưa giải quyết: "tôi nghĩ phần này ổn, nhưng vẫn thấy khó chịu mà không giải thích được."
 - Nhịp câu dài ngắn xen kẽ. Văn máy thường đều đặn, vừa tầm.
 - Tự sửa lời giữa câu, ngoặc xen kẽ: "(tôi cứ muốn nói 'gần như' ở đây, nhưng thật sự nó chắc chắn.)"
-- Văn pháp chuẩn, văn phong trang trọng học thuật không phải là dấu hiệu AI.
 
 ### 5.4 Rewrite check process
 
-- Đọc bản gốc, đánh dấu từng mẫu AI có mặt. (Read the source and mark each AI pattern.)
-- Viết lại, đọc thành tiếng để kiểm tra nhịp câu và động từ đơn giản (là, có / is, has). (Rewrite, read aloud, check rhythm and plain verbs.)
-- Tự hỏi hai câu trước khi nộp: (1) "Còn chỗ nào nghe như máy viết không?" (2) "Bản viết lại có thêm hoặc mất tên riêng, số liệu, ngày tháng, trích dẫn nào không?" Mất hoặc thêm thông tin không có nguồn là lỗi. (Ask both questions before delivering; any unsupported addition or lost claim is an error.)
+- Đọc bản gốc, đánh dấu từng mẫu AI có mặt.
+- Viết lại, đọc thành tiếng để kiểm tra nhịp câu và động từ đơn giản (là, có / is, has).
+- Tự hỏi hai câu trước khi nộp: (1) "Còn chỗ nào nghe như máy viết không?" (2) "Bản viết lại có thêm hoặc mất tên riêng, số liệu, ngày tháng, trích dẫn nào không?" Mất hoặc thêm thông tin không có nguồn là lỗi.
 - If a sentence stays awkward after two fixes, rewrite the paragraph around its main point instead of patching one phrase.
 
-## 6. Writing principles (both languages)
-
-- Mỗi đoạn một ý, mỗi câu một ý. (One idea per paragraph, one idea per sentence.)
-- Định nghĩa trước, bàn luận sau. (Define before discussing.)
-- Tổ chức luận điểm theo thứ tự rõ ràng: Thứ nhất, Thứ hai, Thứ ba. (Order arguments explicitly.)
-- Khẳng định luận đề sớm, chứng minh sau. (State the thesis early, then prove it.)
-- Ví dụ kiểm chứng sau mỗi luận điểm (Chẳng hạn...). (A checked example after each claim.)
-- Kết bằng hệ quả hoặc mục đích, không tóm tắt lại. (End on a consequence or purpose, not a recap.)
-
-## 7. Blog structure (only when the register is blog/content marketing)
+## 6. Blog structure (only when the register is blog/content marketing)
 
 - Tiêu đề: lợi ích cụ thể + yếu tố tò mò, dưới 70 ký tự. (Title: concrete benefit plus curiosity, under 70 characters.)
 - Mở bài: trả lời thẳng trong 100 chữ đầu, công thức PAS (Problem, Agitate, Solve) hoặc APP (Agree, Promise, Preview). (Answer directly in the first 100 words.)
 - Thân bài: 3-5 heading chính, mỗi heading trả lời một câu hỏi phụ; ví dụ, số liệu, ảnh mỗi ~300 từ. (3-5 main headings, each answering one sub-question; example, number, or image every ~300 words.)
 - Kết: một lời kêu gọi hành động duy nhất, rõ ràng. (One clear call to action.)
 
-## 8. Non-fiction book chapter template (knowledge-type books)
+## 7. Non-fiction book chapter template (knowledge-type books)
 
 - Mỗi chương trả lời một câu hỏi của người đọc. (Each chapter answers one reader question.)
 - Trình tự: định nghĩa/khái niệm (2-3 câu) → ví dụ hoặc case study → phân tích → bằng chứng → cách áp dụng → cầu nối sang chương sau. (Definition → example → analysis → evidence → application → bridge to the next chapter.)
 - Độ dài chương 2.500-10.000 chữ, sách 5-20 chương. (Chapters 2,500-10,000 words; books of 5-20 chapters.)
 - Mỗi chương kết bằng một hệ quả hoặc kết luận rõ ràng. (Each chapter ends on a clear consequence or conclusion.)
 
-## 9. Answers, emails, and documentation
+## 8. Answers, emails, and documentation
 
 These instructions load for answers and documentation too. Channel-specific rules:
-- Chat replies favor a scannable structure. When the answer carries several points, items, or findings, give each one its own bullet and write the point and its explanation directly in the bullet as a plain sentence. Do not prefix a bullet with a label and a colon (`Label: explanation`); the first words of the bullet are the content itself. Do not stack several points into long paragraphs; a reader scans bullets, not walls of prose. Use a paragraph only for reasoning that must flow in order, and keep it short.
-- Câu trả lời trong chat ưu tiên cấu trúc quét nhanh được. Khi câu trả lời có nhiều ý, mục, hoặc phát hiện, mỗi ý một gạch đầu dòng, viết ý và giải thích trực tiếp trong mục bằng câu trần. Không thêm nhãn kèm dấu hai chấm (`Nhãn: giải thích`); những chữ đầu của mục là nội dung, không phải tiêu đề. Không dồn nhiều ý thành các đoạn văn dài; người đọc quét gạch đầu dòng, không đọc khối chữ. Đoạn văn chỉ dùng cho lập luận cần nối tiếp theo thứ tự, và giữ ngắn.
-- Break a long answer into short paragraphs with a blank line between them; do not write one dense wall of text. When quoting text verbatim (from an earlier reply, a file, a source), put it in a quote block or quotation marks and say it is quoted verbatim, not paraphrase it into the sentence. Use the formatting a person uses when writing in chat: italics, bold for one or two words, `code` for file paths and commands.
-- Chia câu trả lời dài thành các đoạn ngắn, có dòng trống ở giữa; không viết thành một khối chữ dày đặc. Khi trích nguyên văn (từ câu trả lời trước, một tệp, một nguồn), đặt trong khối trích dẫn hoặc ngoặc kép và nói rõ đó là trích nguyên văn, không lồng paraphrase vào câu. Dùng định dạng như người dùng khi viết trong chat: in nghiêng, in đậm một hai chữ, `code` cho đường dẫn và lệnh.
 
+- Chat replies favor a scannable structure. When the answer carries several points, items, or findings, give each one its own bullet and write the point and its explanation directly in the bullet as a plain sentence. Do not prefix a bullet with a label and a colon (`Label: explanation`, "Nhãn: giải thích"); the first words of the bullet are the content itself. Do not stack several points into long paragraphs; a reader scans bullets, not walls of prose. Use a paragraph only for reasoning that must flow in order, and keep it short.
+- Break a long answer into short paragraphs with a blank line between them; do not write one dense wall of text. When quoting text verbatim (from an earlier reply, a file, a source), put it in a quote block or quotation marks and say it is quoted verbatim, not paraphrase it into the sentence. Use the formatting a person uses when writing in chat: italics, bold for one or two words, `code` for file paths and commands.
 - **Agent answers and chat replies.** Answer in the first sentence, then give the reasoning. No preamble ("Great question", "Of course"), no chatbot closing ("Hope this helps"). Keep the writer's language; if the user writes Vietnamese, answer in Vietnamese.
 - **Emails.** Subject line states the topic. One ask per email. No filler openings or sign-offs beyond the standard form of the relationship.
 - **Documentation, README, commit and PR messages.** Describe current behavior, not the previous version (exceptions: changelogs, release notes, migration guides). Keep code blocks, data, YAML metadata, and link targets unchanged when rewriting prose. Commit messages follow the repo's own convention.
 - **File rewrites.** Change prose only; keep code, data, frontmatter, and link targets intact, then give the user a short summary of what changed.
+- No label-plus-paragraph flow in prose in either language: do not open a topic with a label and a colon followed by a paragraph of explanation; state the topic inside the sentence. Vietnamese prose uses "Về ..." for this move, never "Chuyện ...", which belongs to everyday speech only (detail in 4.1).
 
-## 10. Pre-delivery checklist
+## 9. Pre-delivery gates
 
-- [ ] Đã xác định văn thể đúng cho nội dung / The register matches the content type
-- [ ] Đã đọc ít nhất 2 văn bản mẫu thật cùng chủ đề / At least 2 real sample texts were studied
-- [ ] Thuật ngữ dùng đúng chuẩn của chủ đề / Field-standard terminology used consistently
-- [ ] Mỗi cụm từ chỉ khái niệm dùng lần đầu, kể cả tiêu đề mục, đã được xác nhận bằng tìm kiếm kèm nguồn; không có cụm nào tự ghép và tự coi là đúng / Every first-use term phrase, including section headings, verified by search with a source; no self-coined collocation shipped
-- [ ] Câu văn theo mẫu của văn bản thật, không tự bịa giọng / Sentences follow the real samples, no invented voice
-- [ ] Không thuật ngữ nào bị thay bằng từ thông thường; khái niệm không bị gộp; thuật ngữ đa nghĩa có định nghĩa nội hàm và nêu lĩnh vực / No term substituted with a general-language word; no merged concepts; polysemous terms carry an intensional definition with the domain stated
-- [ ] Không còn kiểu câu "không phải là X + trữ tình", không ẩn dụ trang trí
-- [ ] Không còn dòng nhãn kèm giải thích trong văn xuôi ("Chuyện X:", "Vấn đề X:", "Topic: ..."); chủ đề được nêu bằng câu, tiếng Việt dùng "Về ..." / No label-plus-paragraph flow in prose; topics are stated in sentences, Vietnamese uses "Về ..."
-- [ ] Không còn các mẫu văn AI theo mục 5 (phóng đại, quảng cáo, nguồn mơ hồ, kết lạc quan chung chung, sót lời chatbot) / No AI patterns from section 5
-- [ ] Bản viết lại không thêm và không mất tên riêng, số liệu, ngày tháng, trích dẫn nào so với bản gốc / No fact added or lost in the rewrite
-- [ ] Mỗi đoạn một ý, mỗi câu một ý / One idea per paragraph and sentence
-- [ ] Câu thứ hai trở đi trong mỗi đoạn có từ nối nêu rõ quan hệ với câu trước; không có cụm mệnh đề ghép bằng dấu phẩy thiếu từ nối / Every sentence after the first in each paragraph carries an explicit link word; no comma-joined clause chains without connectives
-- [ ] Không có từ giải thích (tức, tức là, nghĩa là) hay từ nối nào lặp dày bất thường; các câu trong đoạn dùng cấu trúc đa dạng / No explanation word or connective repeats heavily; sentence structures vary across the paragraph
-- [ ] Toàn bộ tệp đã được quét để kiểm tra từng thuật ngữ, không chỉ phần vừa sửa; thuật ngữ lần đầu có giải thích trong câu / The whole file was scanned for term consistency and first-mention explanations, not just the edited part
-- [ ] Có định nghĩa trước khi bàn luận / Definitions before discussion
-- [ ] Kết bài có hệ quả hoặc mục đích / The ending states a consequence or purpose
+Check these against sections 1-8 before delivering. Each gate points at the section that owns the rule; do not restate them here.
 
-## 11. Reference sources
+- [ ] Register matched (section 2); at least 2 real sample texts studied (section 1 samples gate)
+- [ ] Every first-use term phrase, including section headings, verified by search with a source; no self-coined collocation shipped (section 3.1 verification gate)
+- [ ] Every term checked against the source: no substitution, no merged concept, no dropped definition, no unannounced variant; whole file scanned, not just the edited part (section 3.3)
+- [ ] No AI pattern from section 5 present; rewrite check done (section 5.4)
+- [ ] No fact added or lost in the rewrite, against section 1's fact rule
+- [ ] No label-plus-colon flow in prose; chat replies scanned for `Label: explanation` bullets (sections 4.1, 8)
+- [ ] Formal Vietnamese checks done: connectives, anti-ambiguity, punctuation, structure repetition (sections 4.1.1-4.1.3)
+- [ ] The ending states a consequence or purpose, not a recap (sections 6-7 registers)
+
+## 10. Reference sources
 
 - Giáo trình "Thông tin và xử lý thông tin", Đại học Công nghệ, ĐHQG Hà Nội: cách định nghĩa, liên từ.
 - Bùi Văn Nam Sơn, "Trò chuyện triết học" và các bài tiểu luận: văn phong triết học bình dị, thận trọng.
