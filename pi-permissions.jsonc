@@ -18,5 +18,9 @@
     "ls": "deny",
     "grep": "deny",
     "powershell": "deny"
+  },
+  // Skill descriptions always visible in the system prompt; loading a skill body still goes through the normal flow.
+  "skills": {
+    "*": "allow"
   }
 }
