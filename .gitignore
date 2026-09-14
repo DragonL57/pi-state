@@ -8,3 +8,11 @@ npm/
 git/
 bin/
 node_modules/
+
+# Not portable per pi-state-sync ALLOWED_PATHS
+mcp.json
+mcp-cache.json
+mcp-npx-cache.json
+ollama-cloud.json
+pi-permissions.jsonc
+pi-web-session-index.json
