@@ -16,3 +16,7 @@ mcp-npx-cache.json
 ollama-cloud.json
 pi-permissions.jsonc
 pi-web-session-index.json
+
+# Secrets are host-local, never committed. Set them in settings.json or the
+# environment on each host (see README).
+.env
