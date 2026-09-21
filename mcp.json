@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "chrome-devtools": {
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@1.6.0", "--chromeArg=--class=chrome-devtools-mcp"],
+      "command": "cmd.exe",
+      "args": ["/c", "npx", "-y", "chrome-devtools-mcp@1.6.0", "--chromeArg=--class=chrome-devtools-mcp"],
       "lifecycle": "lazy",
       "protocolVersion": "auto",
       "directTools": false
