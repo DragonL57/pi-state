@@ -9,9 +9,8 @@ Managed with [@moejay/pi-state-sync](https://github.com/moejay/pi-state-sync).
 - Pi settings and model definitions
 - Extensions, skills, prompts, and themes
 - Context and system prompt files
-- Encrypted `.env` values
 
-Host-local credentials, dotenvx private keys, trust decisions, sessions, package caches, and generated files are intentionally ignored.
+Host-local credentials (including `EXA_API_KEY`), trust decisions, sessions, package caches, and generated files are intentionally ignored.
 
 ## Set up a new host
 
@@ -44,7 +43,7 @@ Authenticate providers separately on every host:
 /login
 ```
 
-Transfer `.env.keys` through a secure channel or provide `DOTENV_PRIVATE_KEY` from a password manager. Never commit either private key.
+Set `EXA_API_KEY` in the shell profile on each host (e.g. `export EXA_API_KEY="..."`). It is read directly from the environment by the websearch extension and is never committed.
 
 ## Daily workflow
 

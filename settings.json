@@ -35,9 +35,6 @@
     "passive": false,
     "debugLog": false
   },
-  "exa": {
-    "apiKey": "$EXA_API_KEY"
-  },
   "quietStartup": true,
   "tuiMode": "fullscreen",
   "collapseChangelog": true,
