@@ -23,9 +23,10 @@ import {
 	type ExtensionAPI,
 } from "@earendil-works/pi-coding-agent";
 import { statSync, readFileSync } from "node:fs";
+import { homedir } from "node:os";
 import { resolve, dirname, extname, basename, join } from "node:path";
 
-const MDCONVERT = "/home/thelong/.local/bin/mdconvert";
+const MDCONVERT = join(homedir(), ".local", "bin", "mdconvert");
 
 /** Return content inline when at or below this many characters. */
 const INLINE_LIMIT = 40_000;
