@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "1.3.0",
   "theme": "light/dark",
-  "defaultProvider": "ollama-cloud",
-  "defaultModel": "deepseek-v4.1-flash:1017",
+  "defaultProvider": "commandcode",
+  "defaultModel": "deepseek/deepseek-v4.1-flash",
   "defaultThinkingLevel": "high",
   "defaultTools": [
     "read",
@@ -18,7 +18,6 @@
     "npm:@estebanforge/pi-codegraph-enhanced",
     "npm:@moejay/pi-state-sync",
     "npm:pi-commandcode-provider",
-    "npm:pi-split-view",
     "npm:@lll9p/pi-better-compaction"
   ],
   "observational-memory": {
