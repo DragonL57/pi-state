@@ -1,0 +1,4 @@
+{
+  "compactionModel": "ollama-cloud/beam",
+  "compactionThinkingLevel": "high"
+}
