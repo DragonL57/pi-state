@@ -8,3 +8,7 @@ npm/
 git/
 bin/
 node_modules/
+
+# host-local pi installation and ad-hoc backups
+install/
+*.bak.*

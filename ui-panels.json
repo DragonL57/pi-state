@@ -1,0 +1,12 @@
+{
+  "split": true,
+  "thinking": true,
+  "tools": false,
+  "files": false,
+  "toolMode": "compact",
+  "trimResponse": false,
+  "bandHeight": 6,
+  "toolsWidthPct": 35,
+  "diff": true,
+  "answerDivider": "rule"
+}

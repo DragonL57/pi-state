@@ -3,6 +3,9 @@
  *
  * Registers a `websearch` tool callable by the LLM.
  *
+ * Registers a /websearch command (on, off, status) that adds or removes the tool
+ * in the active set for the current session.
+ *
  * API key resolution order:
  *   1. `EXA_API_KEY` environment variable
  *   2. `exa.apiKey` in ~/.pi/agent/settings.json (or project .pi/settings.json)
@@ -11,7 +14,7 @@
  */
 
 import { Type } from "@earendil-works/pi-ai";
-import { defineTool, getAgentDir, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { defineTool, getAgentDir, type ExtensionAPI, type ExtensionContext } from "@earendil-works/pi-coding-agent";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -247,6 +250,88 @@ const websearchTool = defineTool({
 	},
 });
 
+/** Custom session entry recording the user's choice, so /reload and session tree
+ *  navigation keep the tool off until the user turns it back on. */
+const STATE_ENTRY = "websearch-state";
+
+interface WebsearchState {
+	enabled: boolean;
+}
+
+const TOOL_NAME = "websearch";
+
 export default function (pi: ExtensionAPI) {
+	const isActive = (): boolean => pi.getActiveTools().includes(TOOL_NAME);
+
+	// Footer indicator, so a tool that is off is visible without running /websearch.
+	const showIndicator = (ctx: ExtensionContext, enabled: boolean): void => {
+		ctx.ui.setStatus("websearch", enabled ? undefined : ctx.ui.theme.fg("warning", "websearch off"));
+	};
+
+	const apply = (ctx: ExtensionContext, enabled: boolean): void => {
+		const active = pi.getActiveTools();
+		const next = enabled
+			? active.includes(TOOL_NAME)
+				? active
+				: [...active, TOOL_NAME]
+			: active.filter((name) => name !== TOOL_NAME);
+		pi.setActiveTools(next);
+		showIndicator(ctx, enabled);
+	};
+
+	// Only an explicit command records the choice. Restoring it must not append
+	// another entry, or every session start grows the file.
+	const record = (ctx: ExtensionContext, enabled: boolean): void => {
+		apply(ctx, enabled);
+		pi.appendEntry<WebsearchState>(STATE_ENTRY, { enabled });
+	};
+
+	// Replay the last saved choice of the current branch, if any.
+	const restore = (ctx: ExtensionContext): void => {
+		let saved: boolean | undefined;
+		for (const entry of ctx.sessionManager.getBranch()) {
+			if (entry.type === "custom" && entry.customType === STATE_ENTRY) {
+				const data = entry.data as WebsearchState | undefined;
+				if (typeof data?.enabled === "boolean") saved = data.enabled;
+			}
+		}
+		if (saved === undefined) {
+			showIndicator(ctx, isActive());
+			return;
+		}
+		apply(ctx, saved);
+	};
+
 	pi.registerTool(websearchTool);
+
+	pi.registerCommand("websearch", {
+		description: "Turn the Exa websearch tool off or on again for this session",
+		getArgumentCompletions: (prefix: string) => {
+			const matches = ["on", "off", "status"].filter((value) => value.startsWith(prefix));
+			return matches.length > 0 ? matches.map((value) => ({ value, label: value })) : null;
+		},
+		handler: async (args, ctx) => {
+			const action = args.trim().toLowerCase();
+			if (action === "" || action === "status") {
+				ctx.ui.notify(`websearch tool is ${isActive() ? "on" : "off"}`, "info");
+				return;
+			}
+			if (action !== "on" && action !== "off") {
+				ctx.ui.notify(`Usage: /websearch on | off | status (got "${action}")`, "warning");
+				return;
+			}
+			const enabled = action === "on";
+			record(ctx, enabled);
+			ctx.ui.notify(`websearch tool ${enabled ? "enabled" : "disabled"}`, "info");
+		},
+	});
+
+	// Extensions load again on reload and on session switch, so the saved choice
+	// has to be applied to the tool list each time.
+	pi.on("session_start", async (_event, ctx) => {
+		restore(ctx);
+	});
+	pi.on("session_tree", async (_event, ctx) => {
+		restore(ctx);
+	});
 }

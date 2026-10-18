@@ -28,6 +28,7 @@ Global instructions for the pi main agent, applied in every project and session.
 - **Understand**: re-orient from the injected recall.
 - **Plan**: `todo create`. Search the codebase for the existing pattern before designing.
 - **Execute**: capture is automatic.
+- **Verify**: run the check, never sit through it. Do not wait out a long real period (timer, cron, timeout, retry backoff) to prove it works: copy the artifact with a short period, or read the scheduler's computed next elapse, then delete the copy. A test that would block for minutes is a test to redesign.
 - **Report**: end with exactly this shape and nothing else: (1) what changed, one file path per line; (2) what was not done, and why; (3) what the user needs to decide. No introductions, recaps, reassurance, or task restatement. Do not explain code visible in the diff. Short by default; expand only when asked.
 
 Guardrails:
@@ -40,13 +41,13 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # Writing instructions: mandatory load
 
-- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load `/home/thelong/.pi/agent/skills/writing-instructions/SKILL.md` and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
-- The skill's research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate English terms word by word into Vietnamese.
+- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load the skill for the language being written (`/home/thelong/.pi/agent/skills/viet-language/SKILL.md` for Vietnamese, `/home/thelong/.pi/agent/skills/english-language/SKILL.md` for English) and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
+- The two language skills' research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate English terms word by word into Vietnamese.
 - This section overrides the tool-routing table entry: if a turn would write prose without the skill loaded, load it first, no exceptions.
 
 # No AI slop
 
-- Every prose turn loads the writing-instructions skill (see tool routing), which owns the full banned-pattern list: inflated claims, sales language, chatbot patterns, em and en dashes, binary contrasts, and the overused-word list. One rule, one location: do not restate those lists here.
+- Every prose turn loads the language skill for that language (see tool routing), which owns the full banned-pattern list: inflated claims, sales language, chatbot patterns, em and en dashes, binary contrasts, and the overused-word list. One rule, one location: do not restate those lists here.
 - For code comments (the writing skill's exemption), apply the same word and dash bans: no delve/foster/leverage-type inflation, no empty adverbs, no em dash, en dash, or double hyphen, no bold mid-sentence.
 
 # Echoing the user
@@ -56,8 +57,10 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # Git hygiene
 
+- Do not run any git command that writes or reaches out (`commit`, `push`, `pull`, `fetch`, `merge`, `rebase`, `cherry-pick`, `revert`, `reset`, `checkout`, `switch`, `restore`, `stash`, `tag`, `branch`, `worktree`, `remote`, `clean`, `rm`) without the user's explicit go-ahead in the current turn. Under no circumstances. Editing files is allowed; recording them in git is not. Read-only commands (`status`, `log`, `diff`, `show`, `blame`, `config --get`) stay fine. Commit locally only when the user asks for it, and report the commits that are waiting. An approval given for an earlier step does not carry over to the next one.
 - Always attach the task code: `<task-code> <type>: <summary>` (Conventional Commits; the repo's own convention wins). UpLearn task code is ALWAYS `UPL-<task number>` (e.g. `UPL-46 fix: ...`), never `#<number>`.
 - Task code not given: look it up before committing. Kaneo task number = the task's `number` field via the `kaneo-api` skill (e.g. `GET /api/task/{id}` → `"number": 46`); GitHub via `issue://`. Or ask. NEVER invent or guess a code.
+- Do not commit before the changelog entry and the task code are ready: when the repo keeps a changelog (UpLearn: `CHANGELOG.md`, Keep a Changelog), a change in behaviour gets its entry under `[Unreleased]` in the same commit, carrying the same task code as the commit subject.
 - Reference the code everywhere the work is recorded: commit message, PR/change description, final summary.
 - Do not use vague messages (`update stuff`, `fix bug`, `misc changes`), empty bodies for non-obvious changes, or multiple unrelated changes in one commit.
 - Do not write a commit or PR description longer than the change it describes.
@@ -107,8 +110,7 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 | Script file | Nested quotes, escapes, heredocs, JSON payloads for curl, anything over SSH | Fighting complex quoting inline |
 | Git commit | Every commit, `<task-code> <type>: <summary>` | Vague messages, unrelated changes in one commit |
 | `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `/home/thelong/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
-| `writing-instructions` skill | ANY writing, answering, documenting, or rewriting task in English or Vietnamese: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load `/home/thelong/.pi/agent/skills/writing-instructions/SKILL.md` FIRST | Writing or answering from memory, or improvising a style |
-| `m3-expressive` skill | ANY UI work (components, screens, layouts, styling, design review): load `/home/thelong/.pi/agent/skills/m3-expressive/SKILL.md` FIRST; every token/number comes from its references | Stating plausible-looking token values from memory |
+| `viet-language` / `english-language` skills | ANY writing, answering, documenting, or rewriting task: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load the skill for the language being written FIRST (`/home/thelong/.pi/agent/skills/viet-language/SKILL.md`, `/home/thelong/.pi/agent/skills/english-language/SKILL.md`) | Writing or answering from memory, or improvising a style |
 | `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `/home/thelong/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
 | modlens skill | An image is in play and you cannot see its content (path, URL, pasted placeholder) | The active model sees it natively (guard verdict deny), or a plain file read already answers |
 | `recall` | Exact source evidence behind a specific observation/memory id | Broad search, transcript browsing |
