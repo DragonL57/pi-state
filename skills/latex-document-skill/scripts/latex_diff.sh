@@ -198,7 +198,9 @@ extract_git_version() {
     local repo_root
     repo_root=$(git rev-parse --show-toplevel)
     local rel_path
-    rel_path=$(realpath --relative-to="$repo_root" "$file" 2>/dev/null || echo "$file")
+    # Pure bash instead of `realpath --relative-to`, which BSD realpath does not
+    # support: the failure fallback left an absolute path that git show rejects.
+    rel_path="${file#"$repo_root"/}"
 
     echo ":: Extracting $rel_path at revision $rev..." >&2
 
@@ -279,16 +281,29 @@ inject_custom_colors() {
     # Create color override commands
     local color_cmds=""
     if [[ "$color_add" != "blue" ]]; then
-        color_cmds+="\\\providecommand{\\\\DIFaddcolor}{\\\\color{${color_add}}}\n"
+        color_cmds+="\providecommand{\DIFaddcolor}{\color{${color_add}}}"$'\n'
     fi
     if [[ "$color_del" != "red" ]]; then
-        color_cmds+="\\\providecommand{\\\\DIFdelcolor}{\\\\color{${color_del}}}\n"
+        color_cmds+="\providecommand{\DIFdelcolor}{\color{${color_del}}}"$'\n'
     fi
 
     if [[ -n "$color_cmds" ]]; then
-        # Insert after \begin{document}
-        sed -i "/\\\\begin{document}/a\\
-${color_cmds}" "$diff_file"
+        # Insert after \begin{document}. The block goes through a file and awk
+        # instead of `sed -i "expr"`: BSD sed rejects the GNU form and drops the
+        # trailing newline in its append command, and keeping the LaTeX out of
+        # sed's escape processing is what makes both platforms produce the same
+        # bytes.
+        local block_file="${diff_file}.block"
+        local tmp_file="${diff_file}.tmp"
+        printf '%s' "$color_cmds" > "$block_file"
+        BLOCK="$block_file" awk '
+            { print }
+            /\\begin\{document\}/ {
+                while ((getline line < ENVIRON["BLOCK"]) > 0) print line
+                close(ENVIRON["BLOCK"])
+            }
+        ' "$diff_file" > "$tmp_file" && mv "$tmp_file" "$diff_file"
+        rm -f "$block_file"
     fi
 }
 
@@ -309,7 +324,10 @@ mkdir -p "$OUTPUT_DIR"
 # Handle git revision mode
 CLEANUP_TMP=false
 if [[ -n "$GIT_REV" ]]; then
-    TMP_OLD=$(mktemp /tmp/latexdiff_old_XXXXXX.tex)
+    # mktemp needs the X's at the end of the template on BSD, so create the file
+    # first and give it the .tex suffix afterwards.
+    TMP_OLD=$(mktemp "${TMPDIR:-/tmp}/latexdiff_old.XXXXXX") || exit 1
+    TMP_OLD="${TMP_OLD}.tex"
     CLEANUP_TMP=true
     extract_git_version "$NEW_FILE" "$GIT_REV" "$TMP_OLD"
     OLD_FILE="$TMP_OLD"

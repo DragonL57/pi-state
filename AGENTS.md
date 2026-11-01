@@ -41,7 +41,7 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # Writing instructions: mandatory load
 
-- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load the skill for the language being written (`/home/thelong/.pi/agent/skills/viet-language/SKILL.md` for Vietnamese, `/home/thelong/.pi/agent/skills/english-language/SKILL.md` for English) and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
+- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load the skill for the language being written (`~/.pi/agent/skills/viet-language/SKILL.md` for Vietnamese, `~/.pi/agent/skills/english-language/SKILL.md` for English) and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
 - The two language skills' research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate English terms word by word into Vietnamese.
 - This section overrides the tool-routing table entry: if a turn would write prose without the skill loaded, load it first, no exceptions.
 
@@ -70,12 +70,12 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # Environment facts
 
-- **Privileged commands:** `sudo` needs an interactive password the assistant cannot supply. Use `pkexec <command>`: it pops a polkit dialog on the user's desktop that the user approves.
+- **Privileged commands:** `sudo` needs an interactive password the assistant cannot supply. On Linux use `pkexec <command>`, which shows a polkit dialog the user approves. macOS has no polkit, so there print the exact `sudo` command for the user to run in their own terminal and wait for them to confirm it ran.
 - **Vision:** read images directly with native vision first. If native vision fails, fall back to the modlens skill: `bash ~/.agents/skills/modlens/scripts/run.sh -i <path>` returns structured JSON (ocr.full_text, layout.regions, semantics, uncertainty). Engine: opencode CLI route, model `opencode-go/mimo-v2.5`, config `~/.modlens/config.json` (mode 0600). Health check: `run.sh doctor` (no quota). Optional up front: `run.sh guard` returns a deny verdict when the active model sees images natively. No self-built OCR, no PIL, no other vision tools. http(s) image URLs are NOT accepted: download the file locally first, or ask the user for the path.
 - **Disabled built-in tools (use bash/Python instead):** `edit`, `find`, `ls`, `grep` are turned off in `settings.json` (`defaultTools`). For filesystem work, run bash commands (`ls`, `find`, `grep`) or write a Python script and run it. `replace` (from `pi-hashline-edit-pro`) is the only edit tool, so use it instead of `edit`.
 - **Shell and SSH:** never fight complex quoting in inline bash (nested quotes, escapes, heredocs, JSON payloads for curl, anything over SSH). Write a script file, review it, run it; when it executes on a server, scp it there first. For complex edits on a remote file, copy it down, edit locally, copy back. Delete any script that contained credentials or secrets.
 - **Tailscale SSH:** reach a host of the tailnet with `tailscale ssh <host>`. A plain `ssh` to one stops at the Tailscale SSH check, and both forms print `# To authenticate, visit: https://login.tailscale.com/a/...` and then wait for a browser approval. Surface that URL to the user and run the command again once they approve it; do not wait on the hang.
-- **Kaneo API:** deployed at `https://edtech.vmg.edu.vn` (workspace Edtech). Load `/home/thelong/.pi/agent/skills/kaneo-api/SKILL.md` BEFORE any API call; it is the single source of truth for the API reference and the working Bearer key (the key lives only in the skill, never in this file). Never ask the user for the key; if it stops working, tell the user to recreate it in Settings → Account → API Keys and update the skill. Never touch the instance database directly (docker exec psql is forbidden by the user); use the HTTP API only. **Every task carries dates via the API fields: `startDate` = ngày tạo task, `dueDate` = ngày hoàn thành/deploy, luôn set cả hai, không để trống (chi tiết trong skill `kaneo-api`).**
+- **Kaneo API:** deployed at `https://edtech.vmg.edu.vn` (workspace Edtech). Load `~/.pi/agent/skills/kaneo-api/SKILL.md` BEFORE any API call; it is the single source of truth for the API reference and the working Bearer key (the key lives only in the skill, never in this file). Never ask the user for the key; if it stops working, tell the user to recreate it in Settings → Account → API Keys and update the skill. Never touch the instance database directly (docker exec psql is forbidden by the user); use the HTTP API only. **Every task carries dates via the API fields: `startDate` = ngày tạo task, `dueDate` = ngày hoàn thành/deploy, luôn set cả hai, không để trống (chi tiết trong skill `kaneo-api`).**
 
 # Lazy senior dev mode
 
@@ -106,12 +106,12 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 | `todo` | Planning any 2+ step request, always before anything else | Single trivial steps, pure conversation |
 | `blockedBy` / `addBlockedBy` | A step genuinely waits on another | Cosmetic ordering |
 | `delete` (todo) | A task truly leaves the plan | Hiding failed or blocked work |
-| `pkexec` | Privileged commands | Plain `sudo` |
+| `pkexec` | Privileged commands on Linux | Plain `sudo`, or a host without polkit (macOS: give the user the `sudo` command) |
 | Script file | Nested quotes, escapes, heredocs, JSON payloads for curl, anything over SSH | Fighting complex quoting inline |
 | Git commit | Every commit, `<task-code> <type>: <summary>` | Vague messages, unrelated changes in one commit |
-| `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `/home/thelong/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
-| `viet-language` / `english-language` skills | ANY writing, answering, documenting, or rewriting task: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load the skill for the language being written FIRST (`/home/thelong/.pi/agent/skills/viet-language/SKILL.md`, `/home/thelong/.pi/agent/skills/english-language/SKILL.md`) | Writing or answering from memory, or improvising a style |
-| `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `/home/thelong/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
+| `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `~/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
+| `viet-language` / `english-language` skills | ANY writing, answering, documenting, or rewriting task: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load the skill for the language being written FIRST (`~/.pi/agent/skills/viet-language/SKILL.md`, `~/.pi/agent/skills/english-language/SKILL.md`) | Writing or answering from memory, or improvising a style |
+| `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `~/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
 | modlens skill | An image is in play and you cannot see its content (path, URL, pasted placeholder) | The active model sees it natively (guard verdict deny), or a plain file read already answers |
 | `recall` | Exact source evidence behind a specific observation/memory id | Broad search, transcript browsing |
 | `/om:status` / `/om:view` | Check in-session memory state and compaction thresholds | (none) |
@@ -120,7 +120,7 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 - Pi state is Git-backed at `~/.pi/agent` on branch `main`, remote `https://github.com/DragonL57/pi-state` (private), via `npm:@moejay/pi-state-sync`. Git root is `~/.pi/agent` itself.
 - Tracked allowlist: `.gitignore`, `README.md`, `settings.json`, `models.json`, `keybindings.json`, `AGENTS.md`, `SYSTEM.md`, `APPEND_SYSTEM.md`, `extensions/`, `skills/`, `prompts/`, `themes/`. Ignored: `.env`, `auth.json`, `trust.json`, `models-store.json`, `sessions/`, `npm/`, `git/`, `bin/`, `node_modules/`.
-- Secrets: no dotenvx. `websearch.ts` reads `process.env.EXA_API_KEY` directly. Set it host-locally in the shell profile (e.g. `export EXA_API_KEY="..."` in `~/.bashrc`). Never commit it; `.env` is gitignored and unused.
+- Secrets: no dotenvx. `websearch.ts` reads `process.env.EXA_API_KEY` directly. Set it host-locally in the login shell profile: `~/.zshrc` on macOS, `~/.bashrc` on Linux (e.g. `export EXA_API_KEY="..."`). Never commit it; `.env` is gitignored and unused.
 - Daily workflow inside pi: `/pistate pull` before work on another host, `/pistate status` to review, `/pistate snapshot chore: <msg>` to commit, `/pistate push` to push. Manual fallback: `git -C ~/.pi/agent status`, `git -C ~/.pi/agent push`.
 - New host setup: `pi install npm:@moejay/pi-state-sync`, start pi, `/pistate configure existing DragonL57/pi-state`, then `/login` per host and set `EXA_API_KEY` in the shell env. Validator patch in installed `core.ts` adds `ratio` and `not-needed` to `SAFE_LITERAL_SECRETS` to avoid false positives.
 
