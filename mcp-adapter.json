@@ -5,7 +5,34 @@
       "args": [
         "-y",
         "chrome-devtools-mcp@1.6.0",
-        "--chromeArg=--class=chrome-devtools-mcp",
+        "--user-data-dir=/home/thelong/.cache/chrome-devtools-mcp/pi-1",
+        "--chromeArg=--class=chrome-devtools-mcp-pi-1",
+        "--chromeArg=--ignore-certificate-errors"
+      ],
+      "lifecycle": "lazy",
+      "protocolVersion": "auto",
+      "directTools": false
+    },
+    "chrome-devtools-2": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@1.6.0",
+        "--user-data-dir=/home/thelong/.cache/chrome-devtools-mcp/pi-2",
+        "--chromeArg=--class=chrome-devtools-mcp-pi-2",
+        "--chromeArg=--ignore-certificate-errors"
+      ],
+      "lifecycle": "lazy",
+      "protocolVersion": "auto",
+      "directTools": false
+    },
+    "chrome-devtools-3": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@1.6.0",
+        "--user-data-dir=/home/thelong/.cache/chrome-devtools-mcp/pi-3",
+        "--chromeArg=--class=chrome-devtools-mcp-pi-3",
         "--chromeArg=--ignore-certificate-errors"
       ],
       "lifecycle": "lazy",

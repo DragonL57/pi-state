@@ -1,4 +1,4 @@
 {
-  "compactionModel": "ollama-cloud/beam",
-  "compactionThinkingLevel": "off"
+  "compactionModel": "commandcode/Qwen/Qwen3.7-Flash",
+  "compactionThinkingLevel": "low"
 }

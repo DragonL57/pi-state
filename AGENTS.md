@@ -41,8 +41,9 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 
 # Writing instructions: mandatory load
 
-- Before writing or rewriting ANY user-facing prose (documents, chat replies, emails, commit and PR descriptions, changelogs, docs), load the skill for the language being written (`~/.pi/agent/skills/viet-language/SKILL.md` for Vietnamese, `~/.pi/agent/skills/english-language/SKILL.md` for English) and follow it. Unconditional: not "when in doubt", not "for long documents only". The only exemption is code, config, and data files, where prose is limited to comments.
-- The two language skills' research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate English terms word by word into Vietnamese.
+- English is the working language. Write replies, documents, README and code comments, commit messages, PR descriptions and changelog entries in English, and load `~/.pi/agent/skills/english-language/SKILL.md` before the first line. Unconditional: not "when in doubt", not "for long documents only". The exemption is code, config and data files, where prose is limited to comments.
+- Vietnamese is written only for text the product's own users read on the site (learner and teacher facing strings, notices, help text). Load `~/.pi/agent/skills/viet-language/SKILL.md` for it, and never translate English working text into Vietnamese for the user's benefit.
+- The language skills' research gates are mandatory: verify every first-use term phrase and collocation by search with a source before it enters the text; never self-coin phrases; never translate terms word by word.
 - This section overrides the tool-routing table entry: if a turn would write prose without the skill loaded, load it first, no exceptions.
 
 # No AI slop
@@ -110,11 +111,32 @@ pi-observational-memory handles in-session observations for compaction (`/om:sta
 | Script file | Nested quotes, escapes, heredocs, JSON payloads for curl, anything over SSH | Fighting complex quoting inline |
 | Git commit | Every commit, `<task-code> <type>: <summary>` | Vague messages, unrelated changes in one commit |
 | `kaneo-api` skill | ANY Kaneo create/update/read/organize call: load `~/.pi/agent/skills/kaneo-api/SKILL.md` FIRST | Calling the API from memory |
-| `viet-language` / `english-language` skills | ANY writing, answering, documenting, or rewriting task: books, papers, blogs, docs, README, commit/PR messages, emails, chat replies. Load the skill for the language being written FIRST (`~/.pi/agent/skills/viet-language/SKILL.md`, `~/.pi/agent/skills/english-language/SKILL.md`) | Writing or answering from memory, or improvising a style |
+| `english-language` skill | ANY writing in the working language: replies, docs, README, commit/PR messages, changelogs, emails. Load `~/.pi/agent/skills/english-language/SKILL.md` FIRST | Writing from memory, or improvising a style |
+| `viet-language` skill | Text the product's own users read on the site: learner and teacher strings, notices, help text. Load `~/.pi/agent/skills/viet-language/SKILL.md` FIRST | Writing working text, docs or replies in Vietnamese |
 | `agentsmd-writing` skill | Creating or editing AGENTS.md / CLAUDE.md / .cursorrules: load `~/.pi/agent/skills/agentsmd-writing/SKILL.md` FIRST | Editing context files from memory |
+| `design-taste-frontend` skill (taste-skill) | ANY build, redesign, restyle or review of a rendered frontend surface: landing page, marketing site, portfolio, dashboard, settings, inbox. Load it FIRST with `/skill:design-taste-frontend`, run its `scripts/*.mjs` from the project root | Backend, CLI, library or data work with no page or screen in play |
 | modlens skill | An image is in play and you cannot see its content (path, URL, pasted placeholder) | The active model sees it natively (guard verdict deny), or a plain file read already answers |
 | `recall` | Exact source evidence behind a specific observation/memory id | Broad search, transcript browsing |
 | `/om:status` / `/om:view` | Check in-session memory state and compaction thresholds | (none) |
+
+# Browser sessions (chrome-devtools MCP)
+
+- Do not reuse an instance whose profile already has a live Chrome: the second server joins that process and both sessions drive the same tabs. Claim the first free instance instead.
+- Do not close, navigate, or reuse a page another session opened.
+- Do not run parallel Pi sessions on one instance; one instance per session.
+- A `chrome-devtools-mcp` server process is not a busy profile. Another tool, or an idle session, can hold a server on the same user-data-dir with no browser running. Match the Chrome browser binary, which is the process that actually collides.
+- Free check, before the first browser call:
+
+```bash
+for p in pi-1 pi-2 pi-3; do
+  if pgrep -f "[c]hrome .*--user-data-dir=$HOME/.cache/chrome-devtools-mcp/$p( |$)" >/dev/null; then echo "$p busy"; else echo "$p free"; fi
+done
+```
+
+- Instances: `chrome-devtools` -> `pi-1` (`chrome_devtools_*`), `chrome-devtools-2` -> `pi-2` (`chrome_devtools_2_*`), `chrome-devtools-3` -> `pi-3` (`chrome_devtools_3_*`).
+- Do not point Pi at the Command Code profiles (`chrome-profile`, `cc-2`, `cc-3`) or the Claude profiles (`claude-1` to `claude-3`); those belong to those tools.
+- Do not verify a rendered UI by writing a Playwright script, and do not take a screenshot to check your own work. Load the chrome-devtools MCP and drive the real page: `evaluate_script` for computed styles, geometry, contrast and DOM state, `list_network_requests` for the calls behind it. A screenshot is for the user to look at when they ask; it is never your evidence.
+- Do not keep a second browser driver in a repo. Screenshot and capture scripts (`tools/screenshots/capture.mjs` and friends) are deleted; a headless script earns its place only when it is a repeatable numeric gate that runs without a person, such as the focus audit, and then it measures computed values rather than pixels.
 
 # Pi state sync
 
