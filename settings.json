@@ -18,8 +18,7 @@
     "npm:@estebanforge/pi-codegraph-enhanced",
     "npm:@moejay/pi-state-sync",
     "npm:pi-commandcode-provider",
-    "npm:@lll9p/pi-better-compaction",
-    "git:github.com/Leonxlnx/taste-skill"
+    "npm:@lll9p/pi-better-compaction"
   ],
   "observational-memory": {
     "observeAfterTokens": 10000,
@@ -53,6 +52,6 @@
     "{\"source\":\"npm:pi-permission-system@0.8.0\",\"scope\":\"user\"}": "0.8.0",
     "{\"source\":\"npm:@estebanforge/pi-codegraph-enhanced\",\"scope\":\"user\"}": "1.1.2",
     "{\"source\":\"npm:@moejay/pi-state-sync\",\"scope\":\"user\"}": "0.3.1",
-    "{\"source\":\"npm:pi-commandcode-provider\",\"scope\":\"user\"}": "0.7.11"
+    "{\"source\":\"npm:pi-commandcode-provider\",\"scope\":\"user\"}": "0.8.0"
   }
 }
