@@ -1,4 +1,4 @@
 {
-  "compactionModel": "commandcode/Qwen/Qwen3.7-Flash",
-  "compactionThinkingLevel": "low"
+  "compactionModel": "commandcode/Qwen/Qwen3.8-Flash",
+  "compactionThinkingLevel": "medium"
 }
