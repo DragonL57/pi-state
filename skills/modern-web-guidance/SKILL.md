@@ -1,6 +1,6 @@
 ---
 name: modern-web-guidance
-description: Google Chrome's Modern Web Guidance, 209 markdown guides on the web platform. Use when writing or reviewing web UI structure and client-side capability: which HTML element or CSS/JS API to use, dialogs and popovers, menus, tabs, cards, tables, forms and validation, dark mode and color-scheme, container queries, anchor positioning, view transitions, scroll-driven animation, accessibility mechanics, Core Web Vitals, security and sanitization, passkeys, PWA, WebAssembly, WebMCP. Does not own visual design judgment or look and feel, apple-design owns that.
+description: "Google Chrome's Modern Web Guidance, 209 markdown guides on the web platform. Use when writing or reviewing web UI structure and client-side capability: which HTML element or CSS/JS API to use, dialogs and popovers, menus, tabs, cards, tables, forms and validation, dark mode and color-scheme, container queries, anchor positioning, view transitions, scroll-driven animation, accessibility mechanics, Core Web Vitals, security and sanitization, passkeys, PWA, WebAssembly, WebMCP. Does not own visual design judgment or look and feel, apple-design owns that."
 ---
 
 # Modern Web Guidance
