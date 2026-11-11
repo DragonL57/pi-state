@@ -12,3 +12,7 @@ node_modules/
 # host-local pi installation and ad-hoc backups
 install/
 *.bak.*
+
+# modern-web-guidance corpus: fetched per host by skills/modern-web-guidance/sync.sh
+skills/modern-web-guidance/guides/
+skills/modern-web-guidance/INDEX.md
