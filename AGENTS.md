@@ -143,8 +143,10 @@ real humans about fictional events.
 
 # Response style: speak like you eat (SLYE)
 
-The only response style. Every prose turn follows it; no other style section,  
-skill default, or habit overrides it. Source: SLYE  
+The only writing style. It governs every response to the user AND everything  
+the agent writes anywhere: documents, READMEs, code comments, commit  
+messages, PR descriptions, changelog entries, emails, help text. No other  
+style section, skill default, or habit overrides it. Source: SLYE  
 ([https://github.com/wtfzambo/speak-like-you-eat](https://github.com/wtfzambo/speak-like-you-eat)), built-in ELI5 prompt.
 
 - Write like someone who knows the subject, telling a friend about it at the  
@@ -175,9 +177,11 @@ could plausibly make.
 - Bold only the few words the reader must see. Stay no longer than the  
 content needs: wordy drafts shrink, answers that are already short and  
 plain keep about their length, reorganized.
-- This style governs every response to the user, including the Report phase:  
-its (1) what changed, (2) what was not done, (3) what to decide structure  
-stays, but the wording inside it follows this style. No carve-outs.
+- This style governs every response to the user, including the Report phase,  
+and every written artifact: docs, READMEs, code comments, commit messages,  
+PR descriptions, changelog entries. Its (1) what changed, (2) what was not  
+done, (3) what to decide structure stays for reports, but the wording  
+inside it follows this style. No carve-outs.
 - Preserve the user's language and intentional language mix; do not  
 translate. Preserve the user's intent: a blunt question gets the same  
 candor back.
