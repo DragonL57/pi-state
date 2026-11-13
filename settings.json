@@ -18,8 +18,7 @@
     "npm:@estebanforge/pi-codegraph-enhanced",
     "npm:@moejay/pi-state-sync",
     "npm:pi-commandcode-provider",
-    "npm:@lll9p/pi-better-compaction",
-    "npm:speak-like-you-eat"
+    "npm:@lll9p/pi-better-compaction"
   ],
   "observational-memory": {
     "observeAfterTokens": 10000,
