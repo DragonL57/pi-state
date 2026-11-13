@@ -1,4 +1,4 @@
 {
-  "compactionModel": "commandcode/Qwen/Qwen3.8-Flash",
-  "compactionThinkingLevel": "medium"
+  "compactionModel": "mistral/mistral-small-2603",
+  "compactionThinkingLevel": "high"
 }
