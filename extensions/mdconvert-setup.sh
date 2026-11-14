@@ -20,10 +20,21 @@ CLI_DST="$HOME/.local/bin/mdconvert"
 EXTRAS="pdf,docx,pptx,xlsx,xls,outlook,youtube-transcription"
 
 echo "=== venv: $VENV ==="
-python3 -m venv "$VENV"
-"$VENV/bin/pip" install --upgrade pip
+# uv first: it builds the venv without ensurepip, so a host missing
+# python3-venv (Debian/Ubuntu: apt install python3.X-venv) still works.
+# PY_VERSION pins an interpreter that has wheels for every extra.
+if command -v uv >/dev/null 2>&1; then
+	[ -x "$VENV/bin/python" ] || uv venv --python "${PY_VERSION:-3.13}" "$VENV"
+else
+	python3 -m venv "$VENV"
+	"$VENV/bin/pip" install --upgrade pip
+fi
 echo "=== extras: $EXTRAS ==="
-"$VENV/bin/pip" install "markitdown[$EXTRAS]"
+if command -v uv >/dev/null 2>&1; then
+	uv pip install --python "$VENV/bin/python" "markitdown[$EXTRAS]"
+else
+	"$VENV/bin/pip" install "markitdown[$EXTRAS]"
+fi
 
 echo "=== CLI wrapper: $CLI_DST -> $CLI_SRC ==="
 chmod +x "$CLI_SRC"
