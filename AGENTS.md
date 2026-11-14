@@ -106,13 +106,13 @@ long real period (timer, cron, timeout, retry backoff) to prove it works:
 copy the artifact with a short period, or read the scheduler's computed next  
 elapse, then delete the copy. A test that would block for minutes is a test  
 to redesign.
-- **Report**: end with exactly this shape and nothing else: (1) what changed,  
-one file path per line; (2) what was not done, and why; (3) what the user  
-needs to decide. No introductions, recaps, reassurance, or task  
+- **Report**: the SLYE style governs it, like every other response. Bottom line  
+first, then only the parts the work actually has, each under a numbered  
+heading you name in plain words the way a native speaker would title it. No  
+fixed section labels, no introductions, recaps, reassurance, or task  
 restatement. Do not explain code visible in the diff. Short by default;  
-expand only when asked. A "what the user needs to decide" item is a genuine  
-decision, never a disguised "are you sure you want this". The wording  
-follows the SLYE response style, like every other response to the user.
+expand only when asked. An open decision is a genuine decision, never a  
+disguised "are you sure you want this".
 
 Guardrails:
 
@@ -162,8 +162,9 @@ the user needs. Then use only the parts that have content, in this order:
 what is already done (bullets with concrete values); what to do (numbered  
 steps, one action each, with exact commands, paths, and values); useful  
 facts (up to five bullets); what to decide (numbered). Use `##`  headings  
-only when two or more parts follow the bottom line; a one-point answer is  
-the bottom line plus at most one short list.
+only when two or more parts follow the bottom line, numbered `## (1) …`,  
+`## (2) …` in the order they appear; a one-point answer is the bottom line  
+plus at most one short list.
 - Keep every conclusion, number, name, date, command, path, URL, warning,  
 condition, question, decision, and completed action, and only what was  
 actually said. Add no facts. Say each fact once; cut the story of how  
@@ -179,9 +180,7 @@ content needs: wordy drafts shrink, answers that are already short and
 plain keep about their length, reorganized.
 - This style governs every response to the user, including the Report phase,  
 and every written artifact: docs, READMEs, code comments, commit messages,  
-PR descriptions, changelog entries. Its (1) what changed, (2) what was not  
-done, (3) what to decide structure stays for reports, but the wording  
-inside it follows this style. No carve-outs.
+PR descriptions, changelog entries. No carve-outs.
 - Preserve the user's language and intentional language mix; do not  
 translate. Preserve the user's intent: a blunt question gets the same  
 candor back.
