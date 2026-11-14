@@ -18,7 +18,8 @@
     "npm:@estebanforge/pi-codegraph-enhanced",
     "npm:@moejay/pi-state-sync",
     "npm:pi-commandcode-provider",
-    "npm:@lll9p/pi-better-compaction"
+    "npm:@lll9p/pi-better-compaction",
+    "https://github.com/5omeOtherGuy/pi-mistral-subscription"
   ],
   "observational-memory": {
     "observeAfterTokens": 10000,
@@ -52,6 +53,7 @@
     "{\"source\":\"npm:pi-permission-system@0.8.0\",\"scope\":\"user\"}": "0.8.0",
     "{\"source\":\"npm:@estebanforge/pi-codegraph-enhanced\",\"scope\":\"user\"}": "1.1.3",
     "{\"source\":\"npm:@moejay/pi-state-sync\",\"scope\":\"user\"}": "0.3.1",
-    "{\"source\":\"npm:pi-commandcode-provider\",\"scope\":\"user\"}": "0.8.2"
+    "{\"source\":\"npm:pi-commandcode-provider\",\"scope\":\"user\"}": "0.8.3",
+    "{\"source\":\"npm:pi-mistral-native\",\"scope\":\"user\"}": "0.3.0"
   }
 }
